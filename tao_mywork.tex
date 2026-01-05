@@ -6,6 +6,7 @@
 \usepackage[framemethod=tikz]{mdframed}
 
 
+
 \newcounter{result}[section]
 \setcounter{result}{0}
 
@@ -53,7 +54,6 @@
 
 \maketitle
 \tableofcontents
-\pagebreak
 
 \section{Abstract}
 
@@ -62,6 +62,7 @@ However, I have taken many liberties in altering formulations to my liking and p
 I'm also including my solutions to the exercises for future reference.
 
 
+\pagebreak
 
 \section{Construction of $\N$}
 
@@ -69,17 +70,22 @@ I'm also including my solutions to the exercises for future reference.
 \subsection{Peano Axioms}
 
 We lay our assumed axioms under the Peano construction of $\N = \{0, 1, 2, \dots\}$ as follows, 
-motivated by the physical intuition of ``counting numbers". All later results, apart from definitions, must strictly follow logically from the Peano Axioms and ZFC Axioms (defined strictly in next chapter):
+motivated by the physical intuition of ``counting numbers". 
+In doing so, we implicitly rely on some set theory, namely some of the ZFC axioms of sets\footnote{ZFC is defined in the next chapter, so that the formulation of the Axiom of Infinity can be in terms of $\N$ and is thus much more intuitive. Rest assured, while the Peano axioms refer to $\N$, they do not themselves make reference to the Axiom of Infinity, so there's no circularity.}.
+The Peano and ZFC Axioms are our \textit{only} assumptions in all of Analysis.
+We shall see that this is sufficient for a very rich set of results about $\N, \Z, \Q, \R$ and some even more general statements\footnote{All structures isomorphic to the ones mentioned, and also much later on, all metric spaces} to follow directly by formal logic from these foundational axioms, given some definitions.
+In fact, almost all of modern maths relies on no more than the 8-9 ZFC and 5 Peano axioms.
+As I'm sure you'll agree after seeing how intuitive the axioms really are, this is quite a remarkable development in modern maths.
 
 
+\hfill
 
-
-    We start with the bare minimum by demanding that some fixed object, namely $0$, be well defined:
+    We start with the bare minimum by demanding that some fixed object, namely $0$, be well defined. $0$ will be crucial to defining a few later axioms, as it gives us a sort of starting point.
 
     \begin{result}{Axiom}{P}{Existence of 0}{red}
 
-        There exists an object $0$ that is natural.
-        $$\exists0\quad s.t.\quad 0 \in \N \quad$$
+        There exists an object $0$ that is natural and can be used in later axioms.
+        $$\exists0\in \N \quad s.t.\quad \text{\textcolor{magenta}{P.3} and \textcolor{magenta}{P.5} are met.}$$
 
         \begin{tikzpicture}[scale=1.2]
             \fill[cyan] (0,0) circle (3pt);
@@ -256,8 +262,12 @@ motivated by the physical intuition of ``counting numbers". All later results, a
 
     \end{result}
 
-    Abstractly speaking, any other set $X$ equipped with an analogous operation $S: X\to X$ that obeys the 5 Peano Axioms is said to be \textit{isomorphic} with $\N$, denoted $X\cong\N$.
-    Note that due to our later discussions only relying on logical implications from the axioms, which are met by $X$, the results we derive must also apply to $X$.
+    Abstractly speaking, all sets $X$ equipped with an analogous operation $S: X\to X$ (refered to together as an algebraic structure $(X, S)$), that obeys the 5 Peano Axioms is said to be \textit{isomorphic} with $(\N, (\suc))$, denoted $(X, S)\cong(\N, (\suc))$.
+    Note that due to our later discussions only relying on logical implications from the axioms, which are met by $(X, S)$, the results we derive must apply to every such $(X, S)$, given we rewrite our definitions accordingly.
+    As such, we do not strictly define a particular $(\N, (\suc))$, but rather refer abstractly to any such solution $(X, S)$ to Peano.
+    So in a sense, the Peano Axioms lay out a kind of citizenship test, in which $(X, S)$ is considered a natural structure if and only if it passes, and it gets all the perks of being a natural citizen that we will now derive.
+
+    There is one final assumption that must be
 
     \subsection{Addition}
     \subsection{Multiplication}
