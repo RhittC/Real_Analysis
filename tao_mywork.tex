@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \usepackage[margin=1in]{geometry} 
-\usepackage{amsmath,amsthm,amssymb,hyperref, multicol, TikZ, romannum}
+\usepackage{amsmath,amsthm,amssymb,hyperref, multicol, tikz, romannum, wrapfig}
 \usetikzlibrary{arrows.meta, positioning}
 \usepackage[framemethod=tikz]{mdframed}
 
@@ -55,12 +55,90 @@
 \maketitle
 \tableofcontents
 
-\section{Abstract}
+\pagebreak
 
-This text is heavily inspired by Terrence Tao's Analysis Vol. \Romannum{1} and \Romannum{2}.
-However, I have taken many liberties in altering formulations to my liking and providing visuals.
-I'm also including my solutions to the exercises for future reference.
+\setlength{\parskip}{8pt}
+\section{Abstract and Motivation}
 
+\subsection{Abstract}
+
+I decided to write this text as a means to consolidate my personal understanding of undergraduate Real Analysis, 
+and also to practise the skill of writing academic papers. 
+
+It is heavily inspired and guided by Terrence Tao's Analysis Vol. \Romannum{1} and \Romannum{2}.
+However, I have taken many liberties in altering formulations to my liking, 
+completely spelling out motivating arguments before most definitions and theorems (even if this makes it clunky at times), 
+going on large digressions, and providing visuals.
+I'm also including my solutions to the exercises in Tao's texts, mainly for personal reference.
+
+As a digression on expression, in aspiration of approbation from Big M's appellation upon examination, the language register is largely formal in an attempt to adhere to writing conventions. But we undergo register shifts towards 
+informality where appropriate, particularly in avoiding the infamous passive voice\footnote{why is this even a scientific convention smh ts pmo}. This is because it would unnecessarily restrict syntactic freedom 
+in a situational context where it is the \textit{content} that matters far more than the expression. Thus, it is more favourable to be able to convey the content precisely and elegantly without jumping though linguistic hoops every step of the way.
+
+\subsection{Why do Analysis? - Motivation 1}
+The motivation for Analysis is twofold:
+
+Firstly, the most obvious reason is to understand deeper concepts that stray far from the base intuition you get from VCE and high school in general.
+For example, you may have heard the result that there are more $x\in\R$ with $x\in(0, 1)$ than there are $p\in\Q$ with $p\in(-\infty, \infty)$.
+Your intuition tells you this is absurd, because clearly both are infinite! How can we have $\infty_1>\infty_2$?
+Even more counterintuitive is that there are \textit{just as many} $n\in\N$ as there are $x\in\Z$, even though clearly for every $n\in\N$ there are both $\pm n\in\Z$,
+and so you'd expect there to be about twice as many integers as there are naturals.
+It seems like mathematicians are just making stuff up at this point.
+But in Real Analysis, we handle infinity \textit{rigorously} to make such statements not only meaningful, but to fully understand the motivation for even discussing such matters in the first place.
+
+Also, it answers exactly what you can and can't do with infinity. E.g. Take the following example to illustrate why you need to satisfy some very special conditions to be able to interchanging the order in which you perform infinitely many operations without contradiction. 
+Consider the matrix
+$$ M = \begin{pmatrix}
+    1   & 0     & 0     & 0     & \cdots \\
+    -1  & 1     & 0     & 0     & \cdots \\
+    0   & -1    & 1     & 0     & \cdots \\
+    0   & 0     & -1    & 1     & \cdots \\
+    0   & 0     & 0     & -1    & \cdots \\
+    \cdots & \cdots & \cdots & \cdots & \ddots
+\end{pmatrix} $$
+You'd expect the sum of all elements $\sum M_ij$ to be the same 
+
+More than that, Real Analysis answers to the highest echelon that is possible with logic (provably so, in fact) the \textit{why} behind essentially everything you've ever been taught in maths from kindergarten to high school, leave some small details about $\mathbb{C}$.
+
+\subsection{Why do Analysis - Motivation 2 (very important)}
+
+Secondly, we will see how blindly following the whims of what our intuition deems reasonable can very easily lead to contradiction. 
+The many times that this occurred historically, there was great philosophical anguish about what assumptions to discard and what to keep, greatly impeding on mathematical progress. 
+
+\begin{wrapfigure}{r}{0.1\textwidth} \centering \begin{tikzpicture}
+    \draw[cyan, thick] (0, 0) -- node[midway, below] {$1$} (1, 0);
+    \draw[cyan, thick] (1, 0) -- node[midway, right] {$1$} (1, 1);
+    \draw[magenta, thick] (1, 1) -- node[midway, left=5pt, above] {$\sqrt{2}$} (0, 0);
+\end{tikzpicture} \end{wrapfigure}
+For example, take $\sqrt{2}$, a quantity that arises in geometry very naturally as the length of the hypotenuse triangle with both other side lengths $1$.
+In ancient Greece, many held the worldview that everything in the real world, like the diagonal of this square, can be quantified as a rational number in $\Q$.
+And they held this assumption to be so blatantly obvious that it underpinned their philosophy of everything from music to the universe itself.
+So when it was found that $\sqrt{2}\in\Q$ would imply a contradiction, even though the square is very much real, it led to a crisis in which many ancient Greeks had to reevaluate their entire philosophy.
+
+Because we've been taught from a young age that irrational numbers exist and do indeed show up in the real world, we now find the concept to be no doubt very intuitive. 
+But how can we be absolute \textit{sure} that there isn't some other cancerous contradiction hiding somewhere in our mathematical foundations as well, just waiting to spread into everything we think we know, as it did for the Greeks?
+The truth is, we're \textit{not} sure. And it's in fact been \textit{proven}\footnote{search up Godel's Incompleteness Theorem} that we we can never be sure. 
+Not unless we rob ourselves of the ability to do primary school arithmetic, which would be very absurd.
+
+To be clear, the issue isn't with logic itself. As an aside, the question of whether logic is valid is philosophical in nature, and seemingly can't ever have a definitive resolution.
+For example, it could very well be the case that we and our fictitious universe only exist in the incoherent dream of a butterfly. If so, logic as we perceive it only \textit{appears} valid to us,
+yet completely wrong to a scientist observing the dream from outside in the real world. But even though such fundamental questions about reality may be interesting, 
+doubting logic every step of the way certainly limits what mathematical progress is possible.
+So they're for the philosopher to ponder over. Instead, the mathematician prescribes a handful of syntactic operations on True/False (called boolean) values. E.g.
+\begin{align*} &\text{(True }\&\text{ True) is assigned True, but} \\ &\text{(True }\&\text{ False) is assigned False, because True and False are said to contradict each other.} \end{align*}
+Then they prescribe a few more syntactic rules on how to construct a boolean value from a logical statement that performs certain operations on mathematical objects.
+E.g.
+\begin{align*} (\forall x, P(x)\implies P(0)\text{) is assigned True} \end{align*}
+Finally, they combine all of this into what's very aptly named the formal grammar of the formal language called logic. Confident in this grammar, they hand it over to the philosopher to question the validity of.
+The mathematician is now happy to accept this grammar as absolute and instead ponders questions about what statements follow from others (namely, the assumptions) in the language of logic. 
+And even if the philosopher someday finds evidence that the grammar is only valid in the dream of a butterfly and invalid outside of it, much of the work done by mathematicians could very well still be moulded to adhere to whatever rulebook is followed by the world outside the dream.
+
+So what's the best we can do? First, we isolate what assumptions, termed axioms, we are both confident in and deem to be indispensable for our maths to be of value. 
+Then we 
+
+Intuition is absolutely essential for \textit{developing} a conjecture and motivating why it might be plausible. 
+But once we are confident that our conjecture is indeed plausible, we need a gold standard of proof that makes it near impossible for a contradiction to pop up and 
+shatter the foundations of mathematics  as it did for the Greeks.
 
 \pagebreak
 
@@ -69,13 +147,22 @@ I'm also including my solutions to the exercises for future reference.
 
 \subsection{Peano Axioms}
 
-We lay our assumed axioms under the Peano construction of $\N = \{0, 1, 2, \dots\}$ as follows, 
-motivated by the physical intuition of ``counting numbers". 
-In doing so, we implicitly rely on some set theory, namely some of the ZFC axioms of sets\footnote{ZFC is defined in the next chapter, so that the formulation of the Axiom of Infinity can be in terms of $\N$ and is thus much more intuitive. Rest assured, while the Peano axioms refer to $\N$, they do not themselves make reference to the Axiom of Infinity, so there's no circularity.}.
+We lay our assumed Peano Axioms that relate to $\N=\{0, 1, 2, \cdots\}$, motivated by the construction of $\N$ as an analogue for the physical intuition of ``counting numbers". 
+In doing so, we implicitly rely on some set theory, namely some of what is termed the ZFC Axioms of sets, which will be explored in the next chapter\footnote{This is so that the formulation of the Axiom of Infinity can be in terms of $\N$ and is thus much more intuitive. 
+Rest assured, while the Peano Axioms refer to $\N$, they do not themselves make reference to the Axiom of Infinity, so there's no circularity. 
+The standard in the literature is to merge the 5 Peano Axioms with our formulation of the ZFC Axiom of Infinity to yield a singular, strong and concise formulation of Axiom of Infinity, so ZFC can stand on its own as the foundation of modern maths. This will be explored briefly in the next chapter as a further digression on pure vs impure set theory than that of Tao's.}.
 The Peano and ZFC Axioms are our \textit{only} assumptions in all of Analysis.
-We shall see that this is sufficient for a very rich set of results about $\N, \Z, \Q, \R$ and some even more general statements\footnote{All structures isomorphic to the ones mentioned, and also much later on, all metric spaces} to follow directly by formal logic from these foundational axioms, given some definitions.
-In fact, almost all of modern maths relies on no more than the 8-9 ZFC and 5 Peano axioms.
+
+We shall see that this is sufficient for a very rich set of results about $\N, \Z, \Q, \R$ and some even more general statements\footnote{About all structures isomorphic to the ones mentioned, and also much later on, all metric spaces} to follow directly by formal logic from these foundational axioms, given relevant definitions.
+In fact, almost all of modern maths relies on no more than the 8-9 ZFC and 5 Peano Axioms.
 As I'm sure you'll agree after seeing how intuitive the axioms really are, this is quite a remarkable development in modern maths.
+Motivated by these far-reaching implications of the Peano and ZFC Axioms, we set spelling out how a statement follows from these axioms as the gold standard for proof in modern maths.
+
+We will see how blindly following the whims of what our intuition deems reasonable can very easily lead to contradiction. 
+The many times that this occurred historically, there was great philosophical anguish about what assumptions to discard, greatly impeding on mathematical progress. 
+For example, take $\sqrt(2)$, a quantity that arises in geometry very naturally as the length of a diagonal in a square with side length $1$.
+When a proof arose that $\sqrt(2)$ could not be expressed as a fraction in simplest terms, it caused great distraught for the ancient Greeks.
+
 
 
 \hfill
