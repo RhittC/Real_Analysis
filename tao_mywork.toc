@@ -1,8 +1,70 @@
-\contentsline {section}{\numberline {1}Abstract, Motivation and Preliminaries}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Abstract}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Why do Analysis? - Motivation 1}{2}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Why do Analysis? - Motivation 2 (very important)}{3}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Construction of $\mathbb {N}$}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Peano Axioms}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Addition}{8}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Multiplication}{8}{subsection.2.3}%
+\contentsline {section}{\numberline {1}Abstract, Motivation and Preliminaries}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Abstract}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Why do Analysis? - Motivation 1}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Why do Analysis? - Motivation 2 (very important)}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Logic Preliminaries}{6}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Construction of $\mathbb {N}$}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Peano Axioms}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Addition}{10}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Multiplication}{10}{subsection.2.3}%
+\contentsline {section}{\numberline {3}ZFC Set Theory}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.2}Historical Axioms - Too Good to be True}{11}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.1}ZFC Axioms}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.3}Functions}{11}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Images}{11}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Cartesian Products}{11}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Cardinality}{11}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Constructing $\mathbb {Z}$ and $\mathbb {Q}$}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Constructing $\mathbb {Z}$ - Subtractive Closure of $\mathbb {N}$}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Constructing $\mathbb {Q}$ - Divisive Closure of $\mathbb {Z}$}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Exponentiation of $\mathbb {Q}$ to $\mathbb {Z}$ Powers and the Modulus}{12}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Why $\mathbb {Q}$ is Inadequate - Motivation for $\mathbb {R}$}{12}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Constructing $\mathbb {R}$ - Cauchy Completion of $\mathbb {Q}$ - The (Almost) Perfect Field}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.0}Aside - Dedekind Construction of $\mathbb {R}$}{13}{subsection.5.0}%
+\contentsline {subsection}{\numberline {5.1}Cauchy Sequences}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Defining Equivalence of Cauchy Sequences}{13}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Cauchy Construction of $\mathbb {R}$}{13}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Defining an Order on $\mathbb {R}$}{13}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}The Least Upper Bound Property (LUBP) - Fixing the Problems of $\mathbb {Q}$}{13}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Exponentiation of $\mathbb {R}$ to $\mathbb {Q}$ Powers}{13}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Limits of Sequences}{14}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Convergence and Limit Laws}{14}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Defining $\mathbb {R}^[-\infty , \infty ]$}{14}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Suprema and Infima}{14}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Limsup, Liminf and Limit Points}{14}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Some Standard Limits}{14}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Subsequences}{14}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}As Far as Exponentiation of $\mathbb {R}$ Goes - Inadequacies of $\mathbb {R}$}{14}{subsection.6.7}%
+\contentsline {section}{\numberline {7}Series}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Finite Series}{15}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Infinite Series}{15}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Series with $[0, \infty )$}{15}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}The Problem with Rearranging Series}{15}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Root and Ratio Tests}{15}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Handling $\infty $}{16}{section.8}%
+\contentsline {subsection}{\numberline {8.1}$|\mathbb {N}|$ Cardinality}{16}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Summation on Infinite Sets}{16}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}$|\mathbb {R}|$ Cardinality}{16}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Axiom of Choice - Full Discussion}{16}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Well-Ordering of $|R|$ Sets}{16}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Continuity}{17}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Subsets of $\mathbb {R}$}{17}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Algebra on $\mathbb {R}$-valued Functions}{17}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Limiting Values of Functions}{17}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Continuous Functions}{17}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Left and Right Limits}{17}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}The Max Principle}{17}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}The Intermediate Value Theorem (IVT)}{17}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}Monotonicity}{17}{subsection.9.8}%
+\contentsline {subsection}{\numberline {9.9}Uniform Continuity}{17}{subsection.9.9}%
+\contentsline {subsection}{\numberline {9.10}Limits at $\infty $}{17}{subsection.9.10}%
+\contentsline {section}{\numberline {10}Differentiation}{18}{section.10}%
+\contentsline {section}{\numberline {11}Riemann Integral}{19}{section.11}%
+\contentsline {section}{\numberline {12}Metric Spaces}{20}{section.12}%
+\contentsline {section}{\numberline {13}Generalising Continuity to Metric Spaces}{21}{section.13}%
+\contentsline {section}{\numberline {14}Uniform Convergence}{22}{section.14}%
+\contentsline {section}{\numberline {15}Power Series}{23}{section.15}%
+\contentsline {section}{\numberline {16}Fourier Series}{24}{section.16}%
+\contentsline {section}{\numberline {17}Multivariable Differential Calc}{25}{section.17}%
+\contentsline {section}{\numberline {18}Lebesgue Measure - oooh}{26}{section.18}%
+\contentsline {section}{\numberline {19}Lebesgue Integration}{27}{section.19}%
