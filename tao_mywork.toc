@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {5.6}Exponentiation of $\mathbb {R}$ to $\mathbb {Q}$ Powers}{14}{subsection.5.6}%
 \contentsline {section}{\numberline {6}Limits of Sequences}{15}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Convergence and Limit Laws}{15}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Defining $\mathbb {R}^[-\infty , \infty ]$}{15}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.2}Defining $\mathbb {R}^{[-\infty , \infty ]}$}{15}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Suprema and Infima}{15}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Limsup, Liminf and Limit Points}{15}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}Some Standard Limits}{15}{subsection.6.5}%
@@ -47,7 +47,7 @@
 \contentsline {subsection}{\numberline {8.2}Summation on Infinite Sets}{17}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}$|\mathbb {R}|$ Cardinality}{17}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}Axiom of Choice - Full Discussion}{17}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Well-Ordering of $|R|$ Sets}{17}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.5}Well-Ordering of $|\mathbb {R}|$ Sets}{17}{subsection.8.5}%
 \contentsline {section}{\numberline {9}Continuity}{18}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Subsets of $\mathbb {R}$}{18}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Algebra on $\mathbb {R}$-valued Functions}{18}{subsection.9.2}%
