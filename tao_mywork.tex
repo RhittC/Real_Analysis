@@ -185,7 +185,84 @@ The gold standard we set is hence:
 
 
 \subsection{Logic Preliminaries}
-We now spell out explicitly what rules our logic specifies.
+\newcommand{\tr}{\mathcolor{cyan}{\mathfrak{T}}}
+\newcommand{\fa}{\mathcolor{magenta}{\mathfrak{F}}}
+\newcommand{\ill}{\mathcolor{brown}{\mathfrak{I}}}
+
+This subchapter is mainly for reference in case we wish to clarify logical definitions.
+
+Define a statement as a logical object that takes on either $\tr$ (True), $\fa$ (False) or $ \ill $(Ill-Formed),
+where $\mathfrak{i}$ indicates the statement is left undefined and considered to have no truth value. 
+This way, we have a mechanism to handle ill-formed statements in case they slip through our fingers somewhere down the line.
+
+Also note that by default we define ($S_1 \implies S_2$) to be $\tr$ whenever $S_1$ has a truth value other than $\tr$.
+The motivation is simply that it makes things easier to show. 
+Under this definition, if we want to show that ($S_1\implies S_2$) as a whole is $\tr$,
+ all we need to do is consider the case where $S_1$ is $\tr$ and follow logical arguments that lead to $S_2$'s truth. 
+ There is no need to consider when $S_1$ is $\fa$ or $\ill$, making arguments significantly less cluttered.
+If you do not agree with this decision, you can of course define it otherwise, but you will soon realise how unnecessarily messy every single proof becomes.
+
+Furthermore, an ($\implies$) statement only comments about \textit{correlation}, not \textit{causation}.
+ So you could satisfy (I have a german shepherd $\implies$ roses are red) if both are true (or even if you don't have a german shepherd), even if there's no causal link between the two individual statements.
+ This is because causality can be an exceedingly philosophically subjective concept (do I think because I am or am I because I think?), and so logic doesn't concern itself with it.
+ Note that we don't mean causality in the relativistic sense, which would be a completely different concept.
+
+\begin{result}{Definition}{L}{Operations on Statements}{green}
+    Given a statement $S$, the new statement ($not S$) can be formed as follows:
+    
+    \begin{tabular}{c | c}
+        $S$ & $notS$ \\ \hline
+        $\tr$ & $\fa$ \\ 
+        $\fa$ & $\tr$ \\ 
+        $\ill$ & $\ill$
+    \end{tabular}
+    
+    
+    Given two statements $S_1$ and $S_2$, new statements ($S_1\&S_2$) and ($S_1\implies S_2$) can be formed as follows:
+
+    \begin{tabular}{c c | c | c}
+        $S_1$ & $S_2$
+        & $S_1 \& S_2$
+        & $S_1 \implies S_2$ \\ \hline
+
+        $\tr$ & $\tr$
+        & $\tr$ & $\tr$ \\
+
+        $\tr$ & $\fa$
+        & $\fa$ & $\fa$ \\ \hline
+
+        $\fa$ & $\tr$
+        & $\fa$ & $\tr$ \\
+
+        $\fa$ & $\fa$
+        & $\fa$ & $\tr$ \\ \hline
+
+        $\tr$ & $\ill$
+        & $\ill$ & $\ill$ \\
+
+        $\ill$ & $\tr$
+        & $\ill$ & $\tr$ \\ \hline
+
+        $\fa$ & $\ill$
+        & $\ill$ & $\tr$ \\
+
+        $\ill$ & $\fa$
+        & $\ill$ & $\tr$ \\ \hline
+
+        $\ill$ & $\ill$
+        & $\ill$ & $\tr$
+    \end{tabular}
+
+
+    Given two statements $S_1$ and $S_2$, new statements ($S_1orS_2$), ($S_1\impliedby S_2$), ($S_1 \iff S_2$) can be formed as follows:
+    
+    $\begin{aligned}
+        (S_1 or S_2) & \text{ has the same truth value as } (not(not S_1\;\; \&\;\; not S_2)) \\
+        (S_1 \impliedby S_2 ) & \text{ has the same truth value as } (S_1 \implies S_2) \\ 
+        (S_1 \iff S_2 ) & \text{ has the same truth value as } ((S_1 \impliedby S_2 ) \;\;\&\;\; (S_1 \implies S_2))
+    \end{aligned}$
+
+\end{result}
 
 
 
