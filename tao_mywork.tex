@@ -88,7 +88,7 @@ Even more counterintuitive is that there are \textit{just as many} $n\in\N$ as t
 and so you'd expect there to be about twice as many integers as there are naturals.
 It seems like mathematicians are just making stuff up at this point.
 But in Real Analysis, we handle $\infty$ \textit{rigorously} to make such statements not only meaningful, but to fully understand the motivation for even discussing such matters in the first place.
-The full level of rigour makes many theorems feel discoverable, in that you properly understand how you would derive and proof them in the first place.
+The full level of rigour makes many theorems feel discoverable, in that you properly understand how you would derive and prove them in the first place.
 
 We will see how it answers exactly what you can and can't do with $\infty$. E.g. Consider the matrix 
 $$ M = \begin{pmatrix}
@@ -138,9 +138,9 @@ To be clear, the issue isn't with logic itself. As a rather lengthy aside, the q
 For example, it could very well be the case that we and our fictitious universe only exist in the incoherent dream of a butterfly. If so, logic as we perceive it only \textit{appears} valid to us,
 yet completely wrong to a scientist observing the dream from outside in the real world. But even though such fundamental questions about reality may be interesting, 
 doubting logic every step of the way puts overly restrictive bounds on what mathematical progress is possible.
-So they're for the philosopher to ponder over. Instead, the mathematician prescribes a handful of intuitive operations on True/False values, which formalise pure logic. E.g.
+So they're for the philosopher to ponder over. Instead, the mathematician prescribes a handful of intuitive operations on True/False valued statements, which formalise pure logic. E.g.
 \begin{align*} &\text{(True }\&\text{ True) is True, but} \\ &\text{(True }\&\text{ False) is False, as True and False are said to contradict each other.} \end{align*}
-Then they prescribe a few more rules on how to produce logical statements (with True/False value) from free variables (which can be mathematical objects), completing the formal link from maths to logic.
+Then they prescribe a few more rules on how to produce those logical statements from free variables (which can be mathematical objects), completing the formal, objective link from logic to maths.
 E.g.
 \begin{align*} ((\forall x, P(x))\implies P(0)\text{) is True} \end{align*}
 Finally, they combine all of this into a rulebook which they call the formal logic. Confident that the logic reflects reality, they hand it over to the philosopher to question the validity of.
@@ -151,15 +151,15 @@ Now that we have set our logic in stone, how do we proceed?
 Logic can only tell us about the relationships between logical statements, but makes no comment about many individual statements involving free variables.
 E.g. we can show $$\text{(I am a lazy person \& all lazy people are monkeys)}\implies\text{(I am a monkey)}\footnote{given this is stated in a way that avoids mentioning sets}$$
 as a whole is True directly from our logic, but we can't individually show that (I am a lazy person) or (all lazy people are monkeys) are True with logic alone because of the free variables (I), (lazy person/people) and (monkey(s)).
-And if either of those turn out to be False, then we have no information about whether (I am a monkey) is True or False. I could very well be a monkey despite not being lazy. Thus, all in all, we have an ($\implies$) statement that is True but we can't show definitely that its implication that (I am a monkey) is also True\dots which is a good thing because I'm pretty confident I'm not a monkey (but can I \textit{show} definitively that I'm not? Once again, no). 
+And if either of those two statements turn out to be False, then we have no information about whether (I am a monkey) is True or False. I could very well be a monkey despite not being lazy. Thus, all in all, we have an ($\implies$) statement that is True but we can't show definitively that its implication (I am a monkey) is also True\dots which is a good thing because I'm pretty confident I'm not a monkey (but can I \textit{show} definitively that I'm not? Once again, no). 
 
-This is a necessary tradeoff we made to establish barebone logic the mathematician will never have to doubt.
+This is a necessary tradeoff we made so the mathematician will never have to doubt this barebone logic.
 
-So how do we prove a statement $P$ (called a conjecture until proof is established)? 
+So how do we prove a conjecture $P$? 
 Instead of the fool's errand of looking for whether $P$ is definitively True,
-we loosen our standards slightly and instead show the truth of an ($\implies$) statement as follows: if we accept a base few assumptions, which we call our \textit{axioms}, then $C$ is True.
-That is, our standard of proof for $P$ is:
-$$Axiom_1\;\&\;Axiom_2\;\& Axiom_3\;\&\;\dots\quad\implies\quad C$$
+we loosen our standards slightly and instead show the truth of an ($\implies$) statement as follows: if we accept a base few assumptions, which we call our \textit{axioms}, then $P$ is True.
+That is, our standard of proof for $P$ is of the form:
+$$Axiom_1\;\&\;Axiom_2\;\& Axiom_3\;\&\;\dots\quad\implies\quad P$$
 
 
 
@@ -171,7 +171,7 @@ for a contradiction to sneak up on us from a single far-reaching result we prema
 That would shatter the foundations of mathematics, much like the contradictory assumption $\sqrt{2}\in\Q$ did for the Greeks. 
 Of course, in perhaps the greatest failure of modern maths, we've shown logically that we still can't ever completely eliminate that possibility, 
 so long as we demand our axioms be strong enough for maths to be of value.
-Nonetheless, mathematicians collectively agree on a handful of axioms on sets called $\ZF$ (all of which we will encounter in the next 2 chapters) as the basis for our gold standard of proof, 
+Nonetheless, mathematicians collectively agree on a handful of axioms called $\ZF$\footnote{there is another axiom called Choice we will explore in Chapter 8 that together with $\ZF$ forms $\ZF \mathcal{C}$, a slightly weaker standard of proof, but we will see that it is in many respects equivalent to $\ZF$ for our purposes} on ``sets'' (all of which we will encounter in the next 2 chapters) as the basis for our gold standard of proof, 
 as it's the best that we can feasibly do, and it seems unlikely that it'll ever truly see a contradiction.
 
 The gold standard we set is hence:
@@ -189,10 +189,10 @@ The gold standard we set is hence:
 \newcommand{\fa}{\mathcolor{magenta}{\mathfrak{F}}}
 \newcommand{\ill}{\mathcolor{brown}{\mathfrak{I}}}
 
-This subchapter is mainly for reference in case we wish to clarify logical definitions.
+This subchapter is mainly for reference in case we wish to clarify logical definitions and their motivations.\footnote{our formulation is only first order, but this is sufficient for our purposes}
 
 Define a statement as a logical object that takes on either $\tr$ (True), $\fa$ (False) or $ \ill $(Ill-Formed),
-where $\mathfrak{i}$ indicates the statement is left undefined and considered to have no truth value. 
+where $\ill$ indicates the statement is left undefined and considered to have no truth value (e.g. $\frac{1}{0}=1$). 
 This way, we have a mechanism to handle ill-formed statements in case they slip through our fingers somewhere down the line.
 
 Also note that by default we define ($S_1 \implies S_2$) to be $\tr$ whenever $S_1$ has a truth value other than $\tr$.
@@ -203,7 +203,7 @@ Under this definition, if we want to show that ($S_1\implies S_2$) as a whole is
 If you do not agree with this decision, you can of course define it otherwise, but you will soon realise how unnecessarily messy every single proof becomes.
 
 Furthermore, an ($\implies$) statement only comments about \textit{correlation}, not \textit{causation}.
- So you could satisfy (I have a german shepherd $\implies$ roses are red) if both are true (or even if you don't have a german shepherd), even if there's no causal link between the two individual statements.
+ So you could satisfy (pigs can fly $\implies$ the stock market will crash in $2142$) if pigs can't fly or if somehow both are true, even if there's no causal link between the two individual statements (I doubt flying pigs alone would cause the stock market to crash).
  This is because causality can be an exceedingly philosophically subjective concept (do I think because I am or am I because I think?), and so logic doesn't concern itself with it.
  Note that we don't mean causality in the relativistic sense, which would be a completely different concept.
 
@@ -273,7 +273,7 @@ Furthermore, an ($\implies$) statement only comments about \textit{correlation},
 \subsection{The Peano Axioms - Motivation for Defining $\N$ Axiomatically}
 We first motivate the set of naturals $\N = \{0, 1, 2, \dots\}$ to be so essential to maths that it deserves its own few axioms.
 
-As mentioned, $\ZF$, the ultimate handful of axioms we are leading up to, lay out the what is legally a set. So what even is a set intuitively? Informally, a set $S$ is the collection of all objects $x$ satisfying a certain predicate\footnote{see 1.4 Logic Preliminaries} $P_S[x]$. That is,
+As mentioned, $\ZF$, the ultimate handful of axioms we are leading up to, lay out what is legally a set. So what even is a set intuitively? Informally, a set $S$ is the collection of all objects $x$ satisfying a certain predicate\footnote{see 1.4 Logic Preliminaries} $P_S[x]$. That is,
 $$ x \in S \iff P_S[x]$$
 In fact, if we could take that informal definition as our axiom, then would be basically done! That alone would imply 7 out of 8 $\ZF$ Axioms.
 But alas, it's too good to be true. We will see in the next chapter that such an axiom would allow for certain infinitely large sets that lead to contradictions.
@@ -291,8 +291,8 @@ We will not do this, as it is far more intuitive to define Peano first.
 
 \subsection{The Peano Axioms}
 We now lay out the requirements that our first infinite ``set'' $\N$ must satisfy as the 5 Peano Axioms. 
-As sets have not yet been defined, we primitively let $\N[n]$ be the predicate for whether $x$ is natural, 
-substituting for where we would otherwise say $n \in \N$. We abbreviate ($\forall n\;s.t\; \N[n]$) as ($\forall \N[n]$)
+As sets have not yet been defined, we primitively let $\N[n]$ be the predicate for whether $n$ is natural, 
+substituting for where we would otherwise say $n \in \N$. We abbreviate ($\forall n\;s.t.\; \N[n]$) as ($\forall \N[n]$)
 
 
     We start with the bare minimum by demanding that some fixed object, namely $0$, be well defined. $0$ will be crucial to defining a few later axioms, as it gives us a sort of starting point.
@@ -358,11 +358,11 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
 
     However, \textcolor{magenta}{P.1} and \textcolor{magenta}{P.2} alone are not strong enough to force $\N$ to populate with our infinitely many elements.
     In particular, they do not prevent existence of a natural $n$ with $(n\suc)=0$.
-    And yet, informally speaking, this leads to a modulo cycle in which only $n+1$ naturals exist, and everything beyond that overflows back to $0$ as illustrated below, like data structures do in computers. 
-    Modulo sets have many applications, but they are not what we desire as a full, infinite, set of ``counting numbers'', particularly if that $n$ turns out to be $0$ itself, leading to $0$ trivially being the only natural.
+    And yet, informally speaking, this means $n$ overflows back to $0$, forming what's called a modulo cycle. As illustrated below (with $n=4$), this only guarantees the existence of $n+1$ naturals. 
+    Modulo sets have many applications, but they are not what we desire as a full, infinite set of ``counting numbers'', particularly if that $n$ turns out to be $0$ itself, leading to $0$ trivially being the only guaranteed natural.
     So we explicitly force $\N$ to not be such a modulo cycle by demanding that a natural's succession never overflows back to $0$.
 
-    \begin{result}{Axiom}{P}{$\N$ is not a modulo cycle overflowing to $0$}{red}
+    \begin{result}{Axiom}{P}{$\N$ does not have a modulo cycle overflowing to $0$}{red}
         No natural's succession can be $0$.
         $$(\forall \N[n])\quad (n\suc) \neq 0$$
 
@@ -399,7 +399,7 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
     \pagebreak
     As it stands, the issue hasn't been fully resolved yet.
     There is still the pathological case of an \textit{offset} modulo cycle, in which a natural $n$ overflows back so that $(n\suc)=(m\suc)$ even though $(m\suc)$ is already the successor of a different natural $m$.
-    An offset modulo cycle once again leads to finitely many naturals, which we don't want.
+    An offset modulo cycle once again guarantees only finitely many naturals, which we don't want.
     We now complete our requirements on $(\suc)$ by demanding no such successions are the same. Informally, we make $(\suc)$ \textit{injective} i.e. a one-to-one operation (function).
 
 
@@ -443,9 +443,9 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
 
     We now lay out by far the most useful Peano Axiom, which lets us handle the sheer infinite size of $\N$ recursively.
     It is induction, which makes intuitive sense with a domino analogy. 
-    Note, Induction is not a full logical axiom, as it makes reference to predicates as free variables, which is strictly speaking illegal. 
+    Note, induction is not a full logical axiom, as it makes reference to predicates as free variables, which is strictly speaking illegal. 
     This is why it's called an Axiom Schema instead when you want to be logically precise.
-    Indeed, it is logically consistent if you consider it to be no more than a template for generating individual axioms for every predicate you need as you go, all of which are themselves logical.
+    Indeed, it is logically consistent if you consider it to be no more than a template for generating individual axioms for every predicate you need as you go, all of which are themselves well formed logical statements.
 
     \begin{result}{Axiom Schema}{P}{(PMI) Principle of Mathematical Induction}{red}
     
@@ -453,7 +453,7 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
 
         \hfill
 
-        $(\forall P:\rightsquigarrow \{\text{True}, \text{False}\})\qquad(P[0]\;\;\;\&\;\;\;((\forall \N[k])\;P[k]\!\!\implies\!\!P[k\suc])) \quad \implies \quad (\forall \N[n])\; P[n]$
+        $(\forall P:\rightsquigarrow \{\tr, \fa, \ill\})\qquad(P[0]\;\;\;\&\;\;\;((\forall \N[k])\;P[k]\!\!\implies\!\!P[k\suc])) \quad \implies \quad (\forall \N[n])\; P[n]$
 
         \vspace{2\baselineskip}
 
@@ -484,10 +484,11 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
 
     \pagebreak
 
-    Abstractly speaking, all sets $X$ equipped with an analogous operation $S: X\to X$ (refered to together as an algebraic structure $(X, S)$), that obeys the 5 Peano Axioms is said to be \textit{isomorphic} with $(\N, (\suc))$, denoted $(X, S)\cong(\N, (\suc))$.
-    Note that due to our later discussions only relying on logical implications from the axioms, which are met by $(X, S)$, the results we derive must apply to every such $(X, S)$, given we rewrite our definitions accordingly.
-    As such, we do not strictly define a particular $(\N, (\suc))$, but rather refer abstractly to any such solution $(X, S)$ to Peano.
-    So in a sense, the Peano Axioms lay out a kind of citizenship test, in which $(X, S)$ is considered a natural structure if and only if it passes, and it gets all the perks of being a natural citizen that we will now derive.
+    We now briefly discuss implications for after $\ZF$ will be well defined. Abstractly speaking, all sets $X$ equipped with an analogous operation $S: X\to X$ (refered to together as an algebraic structure $\langle X, S\rangle$), that obeys the 5 Peano Axioms is said to be \textit{isomorphic} with $\langle\N, (\suc)\rangle$, denoted $\langle X, S\rangle\cong\langle\N, (\suc)\rangle$.
+    Note that due to our later discussions only relying on logical implications from the axioms, which are met by $\langle X, S\rangle$, the results we derive must apply to every such isomorphism $\langle X, S\rangle$, given we rewrite our definitions accordingly.
+    As such, we do not strictly define a particular $\langle \N, (\suc)\rangle$, but rather refer abstractly to any such solution $\langle X, S\rangle$ to Peano.
+
+    So in a sense, the Peano Axioms lay out a kind of citizenship test, in which $\langle X, S\rangle$ is considered a natural structure if and only if it passes, and it gets all the perks of being a natural citizen that we will now derive.
 
     \subsection{Addition}
     \subsection{Multiplication}
@@ -606,6 +607,19 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
 
     \pagebreak
     \section{Lebesgue Integration}
+
+    \pagebreak
+    \section{Appendix - List of Non-Standard Notations Used}
+
+    In rough order of appearance:
+
+    $\tr, \fa, \ill$ are the truth values True, False and Ill-formed respectively. We use a formulation of 3-valued logic to handle ill-formed and undefined statements using $\ill$.
+
+    $P:\rightsquigarrow \{\tr, \fa, \ill\}$ is a predicate, i.e. a primitive version of a function whose input is any mathematical object (not possible with functions) and output is a truth value.
+
+    $P[x]$ is the outputted truth value of the predicate $P$ when inputted the object $x$
+
+    $\langle x_1, x_2, \dots, x_n \rangle$ is an $n$-tuple
 
 
 \end{document}
