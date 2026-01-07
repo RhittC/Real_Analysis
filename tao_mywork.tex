@@ -44,6 +44,9 @@
 
 \newcommand{\suc}{\!+\!\!+\!}
 
+\newcommand{\ZF}{\mathcal{ZF}}
+
+
 
 \begin{document}
 \pagenumbering{arabic}
@@ -168,56 +171,59 @@ for a contradiction to sneak up on us from a single far-reaching result we prema
 That would shatter the foundations of mathematics, much like the contradictory assumption $\sqrt{2}\in\Q$ did for the Greeks. 
 Of course, in perhaps the greatest failure of modern maths, we've shown logically that we still can't ever completely eliminate that possibility, 
 so long as we demand our axioms be strong enough for maths to be of value.
-Nonetheless, mathematicians collectively agree on a handful of axioms called $ZF$ (all of which we will encounter in the next 2 chapters) as the basis for our gold standard of proof, 
+Nonetheless, mathematicians collectively agree on a handful of axioms on sets called $\ZF$ (all of which we will encounter in the next 2 chapters) as the basis for our gold standard of proof, 
 as it's the best that we can feasibly do, and it seems unlikely that it'll ever truly see a contradiction.
 
 The gold standard we set is hence:
-\begin{result}{Definition}{D}{The Gold Standard of Proof}{green}
-    A conjecture $P$ is considered ``proven'' \textit{if and only if} we can show the following with our logic:
-    $ZF \implies P$
+\begin{result}{Definition}{G}{The Gold Standard of Proof}{green}
+    A conjecture $P$ is considered ``proven'' \textit{if and only if} we can show with our logic that:
+
+    $\ZF \implies P$
 
 \end{result}
 
 
 
 \subsection{Logic Preliminaries}
-
+We now spell out explicitly what rules our logic specifies.
 
 
 
 \pagebreak
-
 \section{Construction of $\N$}
 
+\setcounter{subsection}{-1}
+\subsection{The Peano Axioms - Motivation for Defining $\N$ Axiomatically}
+We first motivate the set of naturals $\N = \{0, 1, 2, \dots\}$ to be so essential to maths that it deserves its own few axioms.
 
-\subsection{Peano Axioms}
+As mentioned, $\ZF$, the ultimate handful of axioms we are leading up to, lay out the what is legally a set. So what even is a set intuitively? Informally, a set $S$ is the collection of all objects $x$ satisfying a certain predicate\footnote{see 1.4 Logic Preliminaries} $P_S[x]$. That is,
+$$ x \in S \iff P_S[x]$$
+In fact, if we could take that informal definition as our axiom, then would be basically done! That alone would imply 7 out of 8 $\ZF$ Axioms.
+But alas, it's too good to be true. We will see in the next chapter that such an axiom would allow for certain infinitely large sets that lead to contradictions.
+But the resolution isn't to completely reject the notion of $\infty$ itself, as we still very much need it to derive many rich and powerful results everywhere from number theory to calculus and beyond.
+So instead, we handle $\infty$ very subtly.
 
-We lay our assumed Peano Axioms that relate to $\N=\{0, 1, 2, \cdots\}$, motivated by the construction of $\N$ as an analogue for the physical intuition of ``counting numbers". 
-In doing so, we implicitly rely on some set theory, namely some of what is termed the ZFC Axioms of sets, which will be explored in the next chapter\footnote{This is so that the formulation of the Axiom of Infinity can be in terms of $\N$ and is thus much more intuitive. 
-Rest assured, while the Peano Axioms refer to $\N$, they do not themselves make reference to the Axiom of Infinity, so there's no circularity. 
-The standard in the literature is to merge the 5 Peano Axioms with our formulation of the ZFC Axiom of Infinity to yield a singular, strong and concise formulation of Axiom of Infinity, so ZFC can stand on its own as the foundation of modern maths. This will be explored briefly in the next chapter as a further digression on pure vs impure set theory than that of Tao's.}.
-The Peano and ZFC Axioms are our \textit{only} assumptions in all of Analysis.
+The most basic form of $\infty$ is that of ``counting numbers'', which we will formalise into the set $\N = \{0, 1, 2, \dots\}$. Informally speaking, is there a counting number out there that you can't count past?
+No! You've no doubt had fun with this as a child. You compete with your friend to see who can think up the biggest number imaginable. Whatever $n$ they think up, you respond swiftly with $n+1$.
+This is a property we want for our $\N$, that it doesn't have a maximal element; you can always find a larger one. Infinity in the sense of that property doesn't seem to be contradictory, so we define our $\ZF$ axioms to allow for such an $\N$ to exist.
+We will see throughout the text that all other infinite sets such as $\Z, \Q, \R$, and subsequently all other notions of $\infty$, can be constructed directly from $\N$, so we are happy.
 
-We shall see that this is sufficient for a very rich set of results about $\N, \Z, \Q, \R$ and some even more general statements\footnote{About all structures isomorphic to the ones mentioned, and also much later on, all metric spaces} to follow directly by formal logic from these foundational axioms, given relevant definitions.
-In fact, almost all of modern maths relies on no more than the 8-9 ZFC and 5 Peano Axioms.
-As I'm sure you'll agree after seeing how intuitive the axioms really are, this is quite a remarkable development in modern maths.
-Motivated by these far-reaching implications of the Peano and ZFC Axioms, we set spelling out how a statement follows from these axioms as the gold standard for proof in modern maths.
+We will later see that one of the $\ZF$ Axioms makes reference to all 5 Peano Axioms, but the converse is not true. So we say $\ZF$ contains Peano.
+The standard in the literature is actually to not even mention the Peano Axioms at all, but instead condense them into a single, concise axiom in $\ZF$ that satisfies our formulation of Peano \textit{automatically}.
+We will not do this, as it is far more intuitive to define Peano first.
 
-We will see how blindly following the whims of what our intuition deems reasonable can very easily lead to contradiction. 
-The many times that this occurred historically, there was great philosophical anguish about what assumptions to discard, greatly impeding on mathematical progress. 
-For example, take $\sqrt(2)$, a quantity that arises in geometry very naturally as the length of a diagonal in a square with side length $1$.
-When a proof arose that $\sqrt(2)$ could not be expressed as a fraction in simplest terms, it caused great distraught for the ancient Greeks.
+\subsection{The Peano Axioms}
+We now lay out the requirements that our first infinite ``set'' $\N$ must satisfy as the 5 Peano Axioms. 
+As sets have not yet been defined, we primitively let $\N[n]$ be the predicate for whether $x$ is natural, 
+substituting for where we would otherwise say $n \in \N$. We abbreviate ($\forall n\;s.t\; \N[n]$) as ($\forall \N[n]$)
 
-
-
-\hfill
 
     We start with the bare minimum by demanding that some fixed object, namely $0$, be well defined. $0$ will be crucial to defining a few later axioms, as it gives us a sort of starting point.
 
     \begin{result}{Axiom}{P}{Existence of 0}{red}
 
         There exists an object $0$ that is natural and can be used in later axioms.
-        $$\exists0\in \N \quad s.t.\quad \text{\textcolor{magenta}{P.3} and \textcolor{magenta}{P.5} are met.}$$
+        $$\exists0\quad s.t.\quad \N[0]\quad\&\quad \text{\textcolor{magenta}{P.3} and \textcolor{magenta}{P.5} are met.}$$
 
         \begin{tikzpicture}[scale=1.2]
             \fill[cyan] (0,0) circle (3pt);
@@ -227,16 +233,17 @@ When a proof arose that $\sqrt(2)$ could not be expressed as a fraction in simpl
 
     \end{result}
 
+    \pagebreak
 
-
-    Now to populate $\N$, we introduce a new primitive operation (that will later by superseded by addition) called \textit{succession}, with the property of closure.
+    Now to populate $\N$, we introduce a new primitive operation (which similarly is not truly an operation - it is no more than a suggestive notation for objects otherwise unrelated to $0$) that will later by superseded by addition. We call it \textit{succession}, and it satisfies an axiom of closure as follows.
+    It is named closure since you can't ``escape'' the naturals (you are en\textit{closed} in naturals) no matter how many times you take the succession.
     Informally, we hope that it behaves like our intuition for incrementing a number by $1$, and thus forces the infinitely many ``counting numbers" to now be well defined and in $\N$.
-    Denote the succession of all $n\in\N$ as $n\suc$, and label $(1:=0\suc),\; (2:=1\suc),\; (3:=2\suc),\;\dots$
+    Denote the succession of a natural $n$ as $n\suc$, and label $(1:=0\suc),\; (2:=1\suc),\; (3:=2\suc),\;\dots$
 
 
     \begin{result}{Axiom}{P}{Closure of $\N$ under $(\suc)$}{red}
         All naturals have natural successions.
-        $$\forall n\in\N\quad n \in \N \implies (n\suc) \in \N$$
+        $$(\forall \N[n]) \quad \N[n\suc]$$
 
         \begin{tikzpicture}[scale=1.2]
 
@@ -272,16 +279,15 @@ When a proof arose that $\sqrt(2)$ could not be expressed as a fraction in simpl
 
     
 
-    \pagebreak
     However, \textcolor{magenta}{P.1} and \textcolor{magenta}{P.2} alone are not strong enough to force $\N$ to populate with our infinitely many elements.
-    In particular, they do not prevent existence of an $n\in\N$ with $n\suc=0$.
-    And yet, informally speaking, this leads to a modulo cycle in which only $n+1$ elements exist in $\N$, and everything beyond that overflows back to $0$, like in a computer. 
-    Modulo sets have many applications, but they are not what we desire as a full set of ``counting numbers'', particularly if that $n$ turns out to be $0$ itself, leading to a trivial $\N = \{0\}$.
+    In particular, they do not prevent existence of a natural $n$ with $(n\suc)=0$.
+    And yet, informally speaking, this leads to a modulo cycle in which only $n+1$ naturals exist, and everything beyond that overflows back to $0$ as illustrated below, like data structures do in computers. 
+    Modulo sets have many applications, but they are not what we desire as a full, infinite, set of ``counting numbers'', particularly if that $n$ turns out to be $0$ itself, leading to $0$ trivially being the only natural.
     So we explicitly force $\N$ to not be such a modulo cycle by demanding that a natural's succession never overflows back to $0$.
 
     \begin{result}{Axiom}{P}{$\N$ is not a modulo cycle overflowing to $0$}{red}
         No natural's succession can be $0$.
-        $$\forall n\in\N\quad (n\suc) \neq 0$$
+        $$(\forall \N[n])\quad (n\suc) \neq 0$$
 
 
         \begin{tikzpicture}[scale=1.2, every node/.style={font=\large, inner sep=1pt}]
@@ -313,15 +319,17 @@ When a proof arose that $\sqrt(2)$ could not be expressed as a fraction in simpl
     \end{result}
 
 
+    \pagebreak
     As it stands, the issue hasn't been fully resolved yet.
-    There is still the pathological case of an \textit{offset} modulo cycle, in which an $n\in\N$ overflows back so that $n \mapsto m\suc$ even though we already have a previous $m\mapsto m\suc$.
-    We now complete our requirements on $(\suc)$ by demanding no such dual mappings to the same succession i.e. we make $(\suc)$ \textit{injective}.
+    There is still the pathological case of an \textit{offset} modulo cycle, in which a natural $n$ overflows back so that $(n\suc)=(m\suc)$ even though $(m\suc)$ is already the successor of a different natural $m$.
+    An offset modulo cycle once again leads to finitely many naturals, which we don't want.
+    We now complete our requirements on $(\suc)$ by demanding no such successions are the same. Informally, we make $(\suc)$ \textit{injective} i.e. a one-to-one operation (function).
 
 
     \begin{result}{Axiom}{P}{$\N$ has no otherwise offset modulo cycles either}{red}
 
         Succession is injective (one-to-one). That is, distinct naturals have distinct successions.
-        $$\forall n, m\in\N\quad n \neq m \implies (n\suc) \neq (m\suc)$$
+        $$(\forall \N[n], \N[m])\quad n \neq m \implies (n\suc) \neq (m\suc)$$
 
         \begin{tikzpicture}[scale=1.2, every node/.style={font=\large, inner sep=1pt}]
             
@@ -356,16 +364,19 @@ When a proof arose that $\sqrt(2)$ could not be expressed as a fraction in simpl
     \end{result}
 
 
-    \pagebreak 
-    We now lay out by far the most useful axiom of $\N$ to handle the sheer infinite size of $\N$ recursively.
-    It is induction.
-    \begin{result}{Axiom}{P}{(PMI) Principle of Mathematical Induction}{red}
+    We now lay out by far the most useful Peano Axiom, which lets us handle the sheer infinite size of $\N$ recursively.
+    It is induction, which makes intuitive sense with a domino analogy. 
+    Note, Induction is not a full logical axiom, as it makes reference to predicates as free variables, which is strictly speaking illegal. 
+    This is why it's called an Axiom Schema instead when you want to be logically precise.
+    Indeed, it is logically consistent if you consider it to be no more than a template for generating individual axioms for every predicate you need as you go, all of which are themselves logical.
+
+    \begin{result}{Axiom Schema}{P}{(PMI) Principle of Mathematical Induction}{red}
     
-        If a proposition of naturals is met for $0$ (Base Case), and it being satisfied for some natural implies it's met for the succession as well (Inductive Case), then as a domino effect, then the proposition is met for all naturals.
+        If a predicate is met for $0$ (Base Case), and it being satisfied for some natural implies it's met for the succession as well (Inductive Case), then as a domino effect, the predicate is met for all naturals.
 
         \hfill
 
-        $\forall P:\N\to \{\text{True}, \text{False}\}\qquad(P(0)\;\&\;(\forall k\in\N)P(k)\!\!\implies\!\!P(k\suc)) \quad \implies \quad \forall n\in\N \quad P(n)$
+        $(\forall P:\rightsquigarrow \{\text{True}, \text{False}\})\qquad(P[0]\;\;\;\&\;\;\;((\forall \N[k])\;P[k]\!\!\implies\!\!P[k\suc])) \quad \implies \quad (\forall \N[n])\; P[n]$
 
         \vspace{2\baselineskip}
 
@@ -394,12 +405,12 @@ When a proof arose that $\sqrt(2)$ could not be expressed as a fraction in simpl
 
     \end{result}
 
+    \pagebreak
+
     Abstractly speaking, all sets $X$ equipped with an analogous operation $S: X\to X$ (refered to together as an algebraic structure $(X, S)$), that obeys the 5 Peano Axioms is said to be \textit{isomorphic} with $(\N, (\suc))$, denoted $(X, S)\cong(\N, (\suc))$.
     Note that due to our later discussions only relying on logical implications from the axioms, which are met by $(X, S)$, the results we derive must apply to every such $(X, S)$, given we rewrite our definitions accordingly.
     As such, we do not strictly define a particular $(\N, (\suc))$, but rather refer abstractly to any such solution $(X, S)$ to Peano.
     So in a sense, the Peano Axioms lay out a kind of citizenship test, in which $(X, S)$ is considered a natural structure if and only if it passes, and it gets all the perks of being a natural citizen that we will now derive.
-
-    There is one final assumption that must be
 
     \subsection{Addition}
     \subsection{Multiplication}
@@ -407,11 +418,11 @@ When a proof arose that $\sqrt(2)$ could not be expressed as a fraction in simpl
 
 
     \pagebreak
-    \section{ZFC Set Theory}
+    \section{$\ZF$ Set Theory}
     \setcounter{subsection}{1}
     \subsection{Historical Axioms - Too Good to be True}
     \setcounter{subsection}{0}
-    \subsection{ZFC Axioms}
+    \subsection{$\ZF$ Axioms}
     \setcounter{subsection}{2}
     \subsection{Functions}
     \subsection{Images}
