@@ -7,6 +7,7 @@
 
 
 
+
 \newcounter{result}[section]
 \setcounter{result}{0}
 
@@ -42,9 +43,21 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 
-\newcommand{\suc}{\!+\!\!+\!}
+
+\newcommand{\tr}{\mathcolor{cyan}{\mathfrak{T}}}
+\newcommand{\fa}{\mathcolor{magenta}{\mathfrak{F}}}
+\newcommand{\ill}{\mathcolor{brown}{\mathfrak{I}}}
+
+\newcommand{\myforall}{\kern.05em\ensuremath\forall\kern-.63em\rotatebox{110}{\rule{.73em}{.4pt}}}
+\newcommand{\myforalll}{\ensuremath\forall\kern-.5em\forall}
+\newcommand{\pred}[2]{#1\!\!\!\prec\!\!#2\!\!\succ}
+\newcommand{\preddef}[1]{#1:\myforall\rightsquigarrow \;\sqsubset\!\! \tr, \fa, \ill\!\!\sqsupset}
 
 \newcommand{\ZF}{\mathcal{ZF}}
+
+\newcommand{\suc}{\!+\!\!+\!}
+
+
 
 
 
@@ -142,7 +155,7 @@ So they're for the philosopher to ponder over. Instead, the mathematician prescr
 \begin{align*} &\text{(True }\&\text{ True) is True, but} \\ &\text{(True }\&\text{ False) is False, as True and False are said to contradict each other.} \end{align*}
 Then they prescribe a few more rules on how to produce those logical statements from free variables (which can be mathematical objects), completing the formal, objective link from logic to maths.
 E.g.
-\begin{align*} ((\forall x, P(x))\implies P(0)\text{) is True} \end{align*}
+\begin{align*} ((\forall x)\; x\text{ is a gorilla})\implies \text{ Harambe is a gorilla}\text{) is True} \end{align*}
 Finally, they combine all of this into a rulebook which they call the formal logic. Confident that the logic reflects reality, they hand it over to the philosopher to question the validity of.
 The mathematician is now happy to accept their logic as absolute and instead ponders questions about how the logic actually affects mathematical statements (theorems, lemmas, corollaries, etc.). 
 And even if the philosopher someday finds that the logic is only valid in the dream of a butterfly and invalid outside of it, much of the work done by mathematicians could very well still be moulded to adhere to whatever rulebook is followed by the world outside the dream.
@@ -150,7 +163,7 @@ And even if the philosopher someday finds that the logic is only valid in the dr
 Now that we have set our logic in stone, how do we proceed?
 Logic can only tell us about the relationships between logical statements, but makes no comment about many individual statements involving free variables.
 E.g. we can show $$\text{(I am a lazy person \& all lazy people are monkeys)}\implies\text{(I am a monkey)}\footnote{given this is stated in a way that avoids mentioning sets}$$
-as a whole is True directly from our logic, but we can't individually show that (I am a lazy person) or (all lazy people are monkeys) are True with logic alone because of the free variables (I), (lazy person/people) and (monkey(s)).
+as a whole is True directly from our logic\footnote{see vacuous truth in the next subchapter}, but we can't individually show that (I am a lazy person) or (all lazy people are monkeys) are True with logic alone because of the free variables (I), (lazy person/people) and (monkey(s)).
 And if either of those two statements turn out to be False, then we have no information about whether (I am a monkey) is True or False. I could very well be a monkey despite not being lazy. Thus, all in all, we have an ($\implies$) statement that is True but we can't show definitively that its implication (I am a monkey) is also True\dots which is a good thing because I'm pretty confident I'm not a monkey (but can I \textit{show} definitively that I'm not? Once again, no). 
 
 This is a necessary tradeoff we made so the mathematician will never have to doubt this barebone logic.
@@ -166,10 +179,10 @@ $$Axiom_1\;\&\;Axiom_2\;\& Axiom_3\;\&\;\dots\quad\implies\quad P$$
 As a concluding remark, we do not deny the value of intuition. In fact, intuition is absolutely essential for \textit{developing} a conjecture and motivating why it might be plausible. 
 Without it we are stuck running a fool's errand of perpetual guess and check, never able to come up with something original and insightful.
 But once we are confident that our conjecture is indeed plausible, we \textit{need} to follow a gold standard of proof independent of intuition.
-It's the best way we know of to minimise the chance as much as feasible
+It's the best way we know of to minimise the risk as much as feasible
 for a contradiction to sneak up on us from a single far-reaching result we prematurely took as granted long ago. 
 That would shatter the foundations of mathematics, much like the contradictory assumption $\sqrt{2}\in\Q$ did for the Greeks. 
-Of course, in perhaps the greatest failure of modern maths, we've shown logically that we still can't ever completely eliminate that possibility, 
+Of course, in perhaps the greatest failure of modern maths, we've shown logically that we still can't ever completely eliminate the risk, 
 so long as we demand our axioms be strong enough for maths to be of value.
 Nonetheless, mathematicians collectively agree on a handful of axioms called $\ZF$\footnote{there is another axiom called Choice we will explore in Chapter 8 that together with $\ZF$ forms $\ZF \mathcal{C}$, a slightly weaker standard of proof, but we will see that it is in many respects equivalent to $\ZF$ for our purposes} on ``sets'' (all of which we will encounter in the next 2 chapters) as the basis for our gold standard of proof, 
 as it's the best that we can feasibly do, and it seems unlikely that it'll ever truly see a contradiction.
@@ -185,9 +198,6 @@ The gold standard we set is hence:
 
 
 \subsection{Logic Preliminaries}
-\newcommand{\tr}{\mathcolor{cyan}{\mathfrak{T}}}
-\newcommand{\fa}{\mathcolor{magenta}{\mathfrak{F}}}
-\newcommand{\ill}{\mathcolor{brown}{\mathfrak{I}}}
 
 This subchapter is mainly for reference in case we wish to clarify logical definitions and their motivations.\footnote{our formulation is only first order, but this is sufficient for our purposes}
 
@@ -195,12 +205,12 @@ Define a statement as a logical object that takes on either $\tr$ (True), $\fa$ 
 where $\ill$ indicates the statement is left undefined and considered to have no truth value (e.g. $\frac{1}{0}=1$). 
 This way, we have a mechanism to handle ill-formed statements in case they slip through our fingers somewhere down the line.
 
-Also note that by default we define ($S_1 \implies S_2$) to be $\tr$ whenever $S_1$ has a truth value other than $\tr$.
+Also note that by default we define ($S_1 \implies S_2$) to be $\tr$ whenever $S_1$ has a truth value other than $\tr$. This is known as vacuous truth.
 The motivation is simply that it makes things easier to show. 
 Under this definition, if we want to show that ($S_1\implies S_2$) as a whole is $\tr$,
  all we need to do is consider the case where $S_1$ is $\tr$ and follow logical arguments that lead to $S_2$'s truth. 
  There is no need to consider when $S_1$ is $\fa$ or $\ill$, making arguments significantly less cluttered.
-If you do not agree with this decision, you can of course define it otherwise, but you will soon realise how unnecessarily messy every single proof becomes.
+If you do not agree with vacuous truth, you can of course define ($\implies$) otherwise, but you will soon realise how unnecessarily messy every single proof becomes.
 
 Furthermore, an ($\implies$) statement only comments about \textit{correlation}, not \textit{causation}.
  So you could satisfy (pigs can fly $\implies$ the stock market will crash in $2142$) if pigs can't fly or if somehow both are true, even if there's no causal link between the two individual statements (I doubt flying pigs alone would cause the stock market to crash).
@@ -266,17 +276,37 @@ Furthermore, an ($\implies$) statement only comments about \textit{correlation},
 
 
 
+Predicates (not a standard term in the literature) are primitive analogues of functions. 
+They can be thought of as like functions with domain being all mathematical objects and range being the truth values.
+Suggestively, we denote:
+$$\preddef{P}$$
+The biggest difference being that they do not actually relate a domain set to a codomain set.
+This is because logic itself is used to define sets and so this would be very blatantly circular.
+
+Instead, 
+
+
+We now define how to produce statements from free variables using \textit{quantifiers}:
+
+
+\begin{result}{Definition}{L}{Quantifiers}{green}
+   $$\exists, \forall, \pred{P}{n}$$ 
+
+\end{result}
+
+
+
 \pagebreak
 \section{Construction of $\N$}
 
 \setcounter{subsection}{-1}
-\subsection{The Peano Axioms - Motivation for Defining $\N$ Axiomatically}
-We first motivate the set of naturals $\N = \{0, 1, 2, \dots\}$ to be so essential to maths that it deserves its own few axioms.
+\subsection{Peano Axioms - Motivation for Defining $\N$ Axiomatically}
+We first motivate the set of naturals $\N = \{0, 1, 2, \dots\}$ to be so essential that it deserves its own few axioms.
 
-As mentioned, $\ZF$, the ultimate handful of axioms we are leading up to, lay out what is legally a set. So what even is a set intuitively? Informally, a set $S$ is the collection of all objects $x$ satisfying a certain predicate\footnote{see 1.4 Logic Preliminaries} $P_S[x]$. That is,
-$$ x \in S \iff P_S[x]$$
-In fact, if we could take that informal definition as our axiom, then would be basically done! That alone would imply 7 out of 8 $\ZF$ Axioms.
-But alas, it's too good to be true. We will see in the next chapter that such an axiom would allow for certain infinitely large sets that lead to contradictions.
+As mentioned, $\ZF$, the ultimate handful of axioms we are leading up to, lay out what is legally a set. So what even is a set intuitively? Informally, a set $S$ is the collection of all objects $x$ satisfying a certain predicate\footnote{see 1.4 Logic Preliminaries} $\preddef{P}$. That is,
+$$ x \in S \iff \pred{P}{x}$$
+In fact, if we could take that informal definition for all $P$ as our axiom, then we'd basically be done! That alone would imply 7 out of 8 $\ZF$ Axioms.
+But alas, it's too good to be true. We'll see in the next chapter that such an axiom would allow for certain infinitely large sets that lead to contradictions.
 But the resolution isn't to completely reject the notion of $\infty$ itself, as we still very much need it to derive many rich and powerful results everywhere from number theory to calculus and beyond.
 So instead, we handle $\infty$ very subtly.
 
@@ -615,9 +645,9 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
 
     $\tr, \fa, \ill$ are the truth values True, False and Ill-formed respectively. We use a formulation of 3-valued logic to handle ill-formed and undefined statements using $\ill$.
 
-    $P:\rightsquigarrow \{\tr, \fa, \ill\}$ is a predicate, i.e. a primitive version of a function whose input is any mathematical object (not possible with functions) and output is a truth value.
+    $\preddef{P}$ is a predicate, i.e. a primitive version of a function whose input is any mathematical object (not possible with functions) and output is a truth value.
 
-    $P[x]$ is the outputted truth value of the predicate $P$ when inputted the object $x$
+    $\pred{P}{x}$ is the outputted truth value of the predicate $P$ when inputted the object $x$
 
     $\langle x_1, x_2, \dots, x_n \rangle$ is an $n$-tuple
 
