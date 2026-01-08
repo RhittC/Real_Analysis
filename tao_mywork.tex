@@ -73,7 +73,7 @@
 \pagenumbering{arabic}
 
 \title{Tao Analysis - My Formulations, Visualisations and Proofs}
-\author{Rhitt C}
+\author{Rhitt Chakravarty}
 \date{January 2026}
 
 \maketitle
@@ -93,7 +93,7 @@ It is heavily inspired and guided by Terrence Tao's Analysis Vol. \Romannum{1} a
 However, I have taken many liberties in altering formulations to my liking, 
 completely spelling out motivating arguments before most definitions and theorems (even if this greatly lengthens discussion), 
 going on large digressions, and providing visuals.
-A sizeable portion of the text is also completely original content that arose from research and contemplation about specific curiosities as I progressed through Tao.
+A sizeable portion of the text is also completely original content that arose from research and \textit{pause and ponder}\footnote{as suggested by Grant Sanderson, 3Blue1Brown} about specific curiosities as I progressed through Tao.
 Moreover, I'm including my solutions to the exercises in Tao's texts, and also made visuals and motivating arguments for them too where I saw fit, mainly for personal reference.
 
 As a digression on expression, in aspiration of approbation from Big M's appellation upon examination, the language register is largely formal in an attempt to adhere to writing conventions. But we undergo register shifts towards 
@@ -105,16 +105,16 @@ in a situational context where it is the \textit{content} that matters far more 
 
 \subsubsection{Motivation 1}
 
-Firstly, the most obvious reason is to understand deeper concepts that stray far from the base intuition you get from VCE and high school in general.
+The most obvious reason to do Analysis is to understand deeper concepts that stray far from the base intuition you get from VCE and high school in general.
 For example, you may have heard the result that there are more $x\in\R$ with $x\in(0, 1)$ than there are $p\in\Q$ with $p\in(-\infty, \infty)$\footnote{the precise statement is with a concept called \textit{cardinality}}.
-Your intuition tells you this is absurd, because clearly both are infinite! How can we have $\infty_1>\infty_2$?
-Even more counterintuitive is that there are \textit{just as many} $n\in\N$ as there are $x\in\Z$, even though clearly for every $n\in\N$ there are both $\pm n\in\Z$,
+Your intuition tells you this is absurd, because clearly both are infinite! How can we have $\infty_1>\infty_2$? And even if we could, \textit{surely} you can't squeeze in more reals between $0$ and $1$ than rationals in the entire number line. 
+Even more counterintuitive is that there are \textit{just as many} $n\in\N$ as there are $x\in\Z$, even though clearly for every $n\in\N$ there are both $x=\pm n\in\Z$,
 and so you'd expect there to be about twice as many integers as there are naturals.
 It seems like mathematicians are just making stuff up at this point.
 But in Real Analysis, we handle $\infty$ \textit{rigorously} to make such statements not only meaningful, but to fully understand the motivation for even discussing such matters in the first place.
 The full level of rigour makes many theorems feel discoverable, in that you properly understand how you would derive and prove them in the first place.
 
-We will see how it answers exactly what you can and can't do with $\infty$. E.g. Consider the matrix 
+We will see how Real Analysis answers exactly what you can and can't do with $\infty$. E.g. Consider the matrix 
 $$ M = \begin{pmatrix}
     1   & 0     & 0           & \cdots \\
     -1  & 1     & 0           & \cdots \\
@@ -124,11 +124,11 @@ $$ M = \begin{pmatrix}
 \end{pmatrix} $$
 You'd expect the sum of all elements $\sum M_{ij}$ to be the same either way, whether you sum over rows or over columns first.
 But we have, if you'll excuse the lax notation, $$\sum_{\text{over rows first}} M = \sum_{\text{over columns}} \begin{pmatrix}1\\0\\0\\\vdots\end{pmatrix}=1,\qquad \sum_{\text{over columns first}} M = \sum_{\text{over rows}} \begin{pmatrix}0 & 0 & 0 & \cdots \end{pmatrix}=0$$
-$$\therefore \left(\sum_{\text{over rows first}} M =1\right)\quad\neq\quad\left(\sum_{\text{over columns first}} M =0\right)$$
+$$\therefore \left(\sum_{\text{over rows first}} M \quad=\quad1\right)\quad\neq\quad\left(\sum_{\text{over columns first}} M\quad =\quad0\right)$$
 
 So we have illustrated that you can't always interchange the order in which you sum infinitely many numbers, contrary to intuition.
 Real Analysis gives the full derivation for the precise conditions in which you can safely do so\footnote{see Fubini}.
-As we have seen, it teaches you how to properly deal with $\infty$.
+In general, it teaches you how to properly deal with $\infty$ in all its mischievous antics.
 So in a sense, Real Analysis can make you like \textit{The Man Who Knew Infinity } {\emoji{🥶🥶🥶}}.
 
 More than that, Real Analysis answers to the highest echelon that is possible with logic (provably so, in fact) the \textit{why} behind essentially everything you've ever been taught in maths from kindergarten to high school, leave some small details about $\mathbb{C}$.
