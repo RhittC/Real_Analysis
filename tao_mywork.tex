@@ -1,11 +1,10 @@
 \documentclass{article}
 
 \usepackage[margin=1in]{geometry} 
-\usepackage{amsmath,amsthm,amssymb,hyperref, multicol, tikz, romannum, wrapfig, graphicx}
+\usepackage{amsmath,amsthm,amssymb,hyperref, multicol, tikz, romannum, wrapfig, graphicx, fontspec}
 \usetikzlibrary{arrows.meta, positioning}
 \usepackage[framemethod=tikz]{mdframed}
-
-\usepackage{fontspec}
+\usepackage[super]{nth}
 
 
 
@@ -132,16 +131,18 @@ In general, it teaches you how to properly deal with $\infty$ in all its mischie
 So in a sense, Real Analysis can make you like \textit{The Man Who Knew Infinity } {\emoji{🥶🥶🥶}}.
 
 More than that, Real Analysis answers to the highest echelon that is possible with logic (provably so, in fact) the \textit{why} behind essentially everything you've ever been taught in maths from kindergarten to high school, leave some small details about $\mathbb{C}$.
-You realise the true degree of freedom that maths gives you.
+You realise the true degree of freedom you actually have in maths.
 And you learn complete objectivity.
 You don't have to take anyone's word for it, just prove it yourself.
-You learn to make a statement, and the proof of it, so damn precise that there is \textit{zero} ambiguity or subjectivity in it; I say this without hyperbole.
+You learn to make a statement, and the proof of it, so damn precise that there is \textit{zero} ambiguity or subjectivity in it; and I say this without hyperbole.
 Doesn't matter if a teacher thinks your expression is lacking; you can be \textit{absolutely sure} that your statement is correct, given you're subtle enough with what is meant by correct.
+And perhaps most importantly, you can make your \textit{own} definitions and formulations as you see fit.
 
 \subsubsection{Motivation 2 (very important)}
 
-Secondly, we will see how blindly following the whims of what our intuition deems reasonable can very easily lead to contradiction. 
-The many times that this occurred historically, there was great philosophical anguish about what assumptions to keep and what to discard, substantially impeding on mathematical progress. 
+We now motivate rigour as an absolute necessity in maths as a whole.
+We will see how blindly following the whims of what our intuition deems reasonable can very easily lead to contradiction. 
+The many times this occurred historically, there was great philosophical anguish on what assumptions to keep and what to discard, substantially impeding on mathematical progress every single time. 
 
 \begin{wrapfigure}{r}{0.1\textwidth} \centering \begin{tikzpicture}
     \draw[cyan, thick] (0, 0) -- node[midway, below] {$1$} (1, 0);
@@ -151,27 +152,26 @@ The many times that this occurred historically, there was great philosophical an
 For example, take $\sqrt{2}$, a quantity that arises in geometry very naturally as the length of the hypotenuse in a triangle with both other side lengths $1$.
 In ancient Greece, many held the worldview that everything in the real world, like this hypotenuse, can be quantified as a rational number in $\Q$.
 And they held this assumption to be so blatantly obvious that it underpinned their philosophy of everything from music to the universe itself.
-So when it was found that $\sqrt{2}\in\Q$ would imply a contradiction, even though the triangle is very much real, it led to a crisis in which many ancient Greeks had to reevaluate their entire philosophy.
+So when it was found that $\sqrt{2}\in\Q$ is contradictory, even though the triangle very much exists, it led to a crisis in which many ancient Greeks had to reevaluate their entire philosophy.
 
 Because we've been taught from a young age that irrational numbers exist and do indeed show up in the real world, we now find the concept to be no doubt very intuitive. 
 But how can we be absolute \textit{sure} there isn't some other cancerous contradiction hiding somewhere in our mathematical foundations as well, just waiting to spread into everything we think we know, as it did for the Greeks?
-The truth is, we're \textit{not} sure. And it's in fact been \textit{proven}\footnote{see Kurt G\"odel's Incompleteness Theorems} that we we can never be sure. 
-Not unless we rob ourselves of the ability to do primary school level arithmetic, which would be very absurd. So as we shall see, we do the next best thing: minimise our set of assumptions to the bare minimum that is still feasible.
+The truth is, we're \textit{not} sure. And it's in fact been \textit{proven}\footnote{see Kurt G\"odel's Incompleteness Theorem 2 (on consistency)} that we we can never be sure. 
+Not unless we weaken those foundations so much that we don't even have enough complexity for \textit{primary school level arithmetic}, which would be very absurd. So as we shall see, we do the next best thing: 
+minimise our collection of assumptions to the bare minimum that is still feasible.
 
 To be clear, the issue we mention isn't with logic itself. As a rather lengthy aside, the question of whether logic is valid is philosophical in nature, and seemingly can't ever have a definitive resolution.
-For example, it could very well be the case that we and our fictitious universe only exist in the vivid yet incoherent dream of a celestial dolphin. If so, logic as we perceive it only \textit{appears} valid to us,
-yet completely flawed and contradictory to a scientist observing the dream from outside in the real universe.
+For example, it could very well be the case that we and our fictitious universe only exist in the vivid yet incoherent dream of a dolphin. If so, logic as we perceive it only \textit{appears} valid to us,
+yet completely flawed and contradictory to a scientist observing the dream from outside in the \textit{real} universe.
 But even though pondering over such hypotheticals about reality itself may be interesting, 
 doubting logic every step of the way puts overly restrictive bounds on what mathematical progress is possible.
 A mathematician needs to be able to say ``if $P$ is $\tr$ and $P$ implies $Q$, then $Q$ is also $\tr$'' without a second thought.
-So they leave those deep questions for the philosopher to concern themself with, and instead take the validity of logic to be a given.
+So they leave those deep questions for the philosopher to concern themself with, and instead take the validity of logic to be given.
 
-More specifically, the mathematician prescribes a series of objective and reasonable rules for how logic operates, independent of whatever content (in our case, maths) you choose to discuss with it, and hands it over for the philosopher to contest.
+More specifically, the mathematician prescribes a list of objective and reasonable rules for how logic operates, independent of whatever content (in our case, maths) you choose to discuss with it, and hands it over for the philosopher to contest.
 Having set in stone the interface between logic and maths, the mathematician now gives themselves the freedom to question \textit{anything} in the realm of maths using proofs that adhere to the formal logical rules,
-but never again to doubt the rules themselves.
-This way, the mathematician is sure that everything they conclude is as valid as logic itself.
-And if the philosopher someday finds that the true logical rules are indeed different in the real universe waiting beyond the dolphin's dream,
-then they could still very well be similar enough for the bulk of the mathematician's work to be moulded accordingly.
+but they have so much confidence in those foundational logical rules themselves that they never doubt them again.
+This way, the mathematician is sure that everything they conclude is as valid as logic itself (with some caveats that are discussed now), and they're content with that.
 We will see an explicit formalism of logic next subchapter.
 
 
@@ -196,13 +196,16 @@ We will see an explicit formalism of logic next subchapter.
 %
 %This is a necessary tradeoff we made so the mathematician will never have to doubt this barebone logic.
 
-But what matters for maths is, how do we prove a statement $P$ under our formal rules for logic? 
-Instead of the fool's errand of looking for whether $P$ is definitively True,
-we loosen our standards slightly and instead show the truth of an ($\implies$) statement as follows: if we accept a base few assumptions, which we call our \textit{axioms}, then $P$ is True.
-That is, our standard of proof for $P$ is of the form:
-$$Axiom_1\;\&\;Axiom_2\;\& Axiom_3\;\&\;\dots\quad\implies\quad P$$
+Note, logic is so barebone (as it should be if the mathematician is to never doubt it) that it makes no comment about what is definitively true about the individual objects it operates on.
+The only thing it can judge is the relationship between our assumptions and other statements, both of which concern those objects.
+E.g. we may not be able to assert whether (I am a monkey) is definitively $\tr$ or $\fa$ with pure logic alone, but we \textit{can} say that under the assumptions
+(I am lazy) and (all who are lazy are monkeys), I am indeed a monkey. Under different, perhaps more sensible assumptions though, maybe I'm not a monkey...which is a good thing because I'm pretty confident I'm not a monkey (but can I \textit{prove} it definitively? No!)
 
-
+We call our assumptions in mathematics our \textit{axioms}. 
+And as alluded to before, mathematicians of the early \nth{20} century sought a minimal collection of axioms that we \textit{know} don't suffer the same fate as the ancient Greeks.
+But alas, it was too good to be true.
+It was soon proven with pure logic that the only such collections we can be sure have no contradictions are far too weak to be of much value to us.
+This will be explored in some more depth in Chapter $3$, on Hilbert's Program (consistency).
 
 As a concluding remark, we do not deny the value of intuition. In fact, intuition is absolutely essential for \textit{developing} a conjecture and motivating why it might be plausible. 
 Without it we are stuck running a fool's errand of perpetual guess and check, never able to come up with something original and insightful.
@@ -210,20 +213,20 @@ But once we are confident that our conjecture is indeed plausible, we \textit{ne
 It's the best way we know of to minimise the risk as much as feasible
 for a contradiction to sneak up on us from a single far-reaching result we prematurely took as granted long ago. 
 That would shatter the foundations of mathematics, much like the contradictory assumption $\sqrt{2}\in\Q$ did for the Greeks. 
-Of course, in perhaps the greatest failure of modern maths, we've shown logically that we still can't ever completely eliminate the risk, 
-so long as we demand our axioms be strong enough for maths to be of value.
-Nonetheless, mathematicians collectively agree on a handful of axioms called $\ZF$\footnote{there is another axiom called Choice we will explore in Chapter 8 that together with $\ZF$ forms $\ZF \mathcal{C}$, a slightly weaker standard of proof, but we will see that it is in many respects equivalent to $\ZF$ for our purposes} on ``sets'' (all of which we will encounter in the next 2 chapters) as the basis for our gold standard of proof, 
-as it's the best that we can feasibly do, and it seems unlikely that it'll ever truly see a contradiction.
-
-The gold standard we set is hence:
+Of course, in perhaps the greatest failure of modern maths, we've shown logically that we still can't ever completely eliminate the risk.
+But nonetheless, mathematicians collectively agree on a handful of axioms called $\ZF$\footnote{there is another axiom called Choice we will explore in Chapter 8 that together with $\ZF$ forms $\ZF \mathcal{C}$, a slightly weaker standard of proof, but we will see that it is in many respects equivalent to $\ZF$ for our purposes} on ``sets'' (all of which we will encounter in the next 2 chapters) as the basis for our gold standard of proof, 
+which is loosely considered our best bet to avoid contradictions. Hence:
 \begin{result}{Definition}{G}{The Gold Standard of Proof}{green}
-    A conjecture $P$ is considered ``proven'' \textit{if and only if} we can show with our logic that:
+    A conjecture $P$ is considered plausible enough to be called ``proven'' \textit{if and only if} we can show with our logic that:
 
-    $\ZF \implies P$
+    (Assuming $\ZF$, we have $P$ is $\tr$) as a whole is $\tr$
 
+    To distinguish, we sometimes say $P$ is ``definitively true'' \textit{if and only if} we can show that:
+
+    $P$ is $\tr$
 \end{result}
 
-
+.
 
 \subsection{Logic Preliminaries}
 
@@ -574,6 +577,7 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
     \subsection{Images}
     \subsection{Cartesian Products}
     \subsection{Cardinality}
+    \subsection{Hilbert's Program}
 
 
     \pagebreak
