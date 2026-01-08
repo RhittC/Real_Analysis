@@ -34,7 +34,7 @@
   \end{center} \hfill \end{mdframed} \vspace{3\baselineskip}
 }
 
-\hypersetup{colorlinks=True, linkcolor=cyan}
+\hypersetup{colorlinks=True, linkcolor=teal}
 
 
 
@@ -44,14 +44,14 @@
 \newcommand{\Q}{\mathbb{Q}}
 
 
-\newcommand{\tr}{\mathcolor{cyan}{\mathfrak{T}}}
-\newcommand{\fa}{\mathcolor{magenta}{\mathfrak{F}}}
-\newcommand{\ill}{\mathcolor{brown}{\mathfrak{I}}}
+\newcommand{\tr}{\mathcolor{teal}{\mathfrak{True}}}
+\newcommand{\fa}{\mathcolor{purple}{\mathfrak{False}}}
+\newcommand{\ill}{\mathcolor{orange}{\mathfrak{Ill}}}
 
 \newcommand{\myforall}{\kern.05em\ensuremath\forall\kern-.63em\rotatebox{110}{\rule{.73em}{.4pt}}}
 \newcommand{\myforalll}{\ensuremath\forall\kern-.5em\forall}
 \newcommand{\pred}[2]{#1\!\!\!\prec\!\!#2\!\!\succ}
-\newcommand{\preddef}[1]{#1:\myforall\rightsquigarrow \;\sqsubset\!\! \tr, \fa, \ill\!\!\sqsupset}
+\newcommand{\preddef}[2]{#1:\myforall_{\;#2}\rightsquigarrow \;\sqsubset\!\! \tr, \fa, \ill\!\!\sqsupset}
 
 \newcommand{\ZF}{\mathcal{ZF}}
 
@@ -200,9 +200,8 @@ The gold standard we set is hence:
 
 \subsection{Logic Preliminaries}
 
-This subchapter is mainly for reference in case we wish to clarify logical definitions and their motivations.\footnote{our formulation is only first order, but this is sufficient for our purposes}
 
-Define a statement as a logical object that takes on either $\tr$ (True), $\fa$ (False) or $ \ill $(Ill-Formed),
+Define a statement as a logical entity that takes on either $\tr$ (True), $\fa$ (False) or $ \ill $(Ill-Formed),
 where $\ill$ indicates the statement is left undefined and considered to have no truth value (e.g. $\frac{1}{0}=1$). 
 This way, we have a mechanism to handle ill-formed statements in case they slip through our fingers somewhere down the line.
 
@@ -276,11 +275,16 @@ Furthermore, an ($\implies$) statement only comments about \textit{correlation},
 \end{result}
 
 
+\pagebreak
+We now discuss how to link our logic to various free variables in a way that avoids circular reasoning and self-referential paradoxes.
 
-Predicates (not a standard term in the literature) are primitive analogues of functions. 
-They can be thought of as like functions with domain being all mathematical objects and range being the truth values.
+Firstly, we refer to our most basic mathematical objects as \textit{$0$th-order objects}. 
+$0$-th order objects are not themselves in terms of 
+
+Predicates are primitive analogues of functions. 
+That is, they can be thought of as like functions with domain being all zero-order objects and range being the truth values.
 Suggestively, we denote:
-$$\preddef{P}$$
+$$\preddef{P}{0}$$
 The biggest difference being that they do not actually relate a domain set to a codomain set.
 This is because logic itself is used to define sets and so this would be very blatantly circular.
 
@@ -304,7 +308,7 @@ We now define how to produce statements from free variables using \textit{quanti
 \subsection{Peano Axioms - Motivation for Defining $\N$ Axiomatically}
 We first motivate the set of naturals $\N = \{0, 1, 2, \dots\}$ to be so essential that it deserves its own few axioms.
 
-As mentioned, $\ZF$, the ultimate handful of axioms we are leading up to, lay out what is legally a set. So what even is a set intuitively? Informally, a set $S$ is the collection of all objects $x$ satisfying a certain predicate\footnote{see 1.4 Logic Preliminaries} $\preddef{P}$. That is,
+As mentioned, $\ZF$, the ultimate handful of axioms we are leading up to, lay out what is legally a set. So what even is a set intuitively? Informally, a set $S$ is the collection of all objects $x$ satisfying a certain predicate\footnote{see 1.4 Logic Preliminaries} $\preddef{P}{0}$. That is,
 $$ x \in S \iff \pred{P}{x}$$
 In fact, if we could take that informal definition for all $P$ as our axiom, then we'd basically be done! That alone would imply 7 out of 8 $\ZF$ Axioms.
 But alas, it's too good to be true. We'll see in the next chapter that such an axiom would allow for certain infinitely large sets that lead to contradictions.
@@ -646,7 +650,7 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
 
     $\tr, \fa, \ill$ are the truth values True, False and Ill-formed respectively. We use a formulation of 3-valued logic to handle ill-formed and undefined statements using $\ill$.
 
-    $\preddef{P}$ is a predicate, i.e. a primitive version of a function whose input is any mathematical object (not possible with functions) and output is a truth value.
+    $\preddef{P}{0}$ is a predicate, i.e. a primitive version of a function whose input is any mathematical object (not possible with functions) and output is a truth value.
 
     $\pred{P}{x}$ is the outputted truth value of the predicate $P$ when inputted the object $x$
 
