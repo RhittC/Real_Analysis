@@ -5,9 +5,9 @@
 \usetikzlibrary{arrows.meta, positioning}
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage[super]{nth}
+\usepackage[backend=biber, style=alphabetic, sorting=ynt]{biblatex}
 
-
-
+\addbibresource{tao_mywork.bib}
 
 
 \newcounter{result}[section]
@@ -88,11 +88,12 @@
 I decided to write this text as a means to consolidate my personal understanding of undergraduate Real Analysis, 
 and also to practise the skill of writing academic papers. 
 
-It is heavily inspired and guided by Terrence Tao's Analysis Vol. \Romannum{1} and \Romannum{2}.
+It is heavily inspired and guided by Terrence Tao's Analysis Vol. \Romannum{1} and \Romannum{2} \cite{*} 
 However, I have taken many liberties in altering formulations to my liking, 
 completely spelling out motivating arguments before most definitions and theorems (even if this greatly lengthens discussion), 
 going on large digressions, and providing visuals.
-A sizeable portion of the text is also completely original content that arose from research and \textit{pause and ponder}\footnote{as suggested by Grant Sanderson, 3Blue1Brown} about specific curiosities as I progressed through Tao.
+A good portion of the text is also completely original content that arose from research and \textit{pause and ponder}\footnote{as suggested by Grant Sanderson, 3Blue1Brown} about specific curiosities as I progressed through Tao.
+I've numbered these differently to preserve Tao's original chapter numbers.
 Moreover, I'm including my solutions to the exercises in Tao's texts, and also made visuals and motivating arguments for them too where I saw fit, mainly for personal reference.
 
 As a digression on expression, in aspiration of approbation from Big M's appellation upon examination, the language register is largely formal in an attempt to adhere to writing conventions. But we undergo register shifts towards 
@@ -135,8 +136,8 @@ You realise the true degree of freedom you actually have in maths.
 And you learn complete objectivity.
 You don't have to take anyone's word for it, just prove it yourself.
 You learn to make a statement, and the proof of it, so damn precise that there is \textit{zero} ambiguity or subjectivity in it; and I say this without hyperbole.
-Doesn't matter if a teacher thinks your expression is lacking; you can be \textit{absolutely sure} that your statement is correct, given you're subtle enough with what is meant by correct.
-And perhaps most importantly, you can make your \textit{own} definitions and formulations as you see fit.
+Doesn't matter if your English teacher thinks your expression is lacking; you can be \textit{absolutely sure} that your proof is correct.
+And perhaps most importantly, if you don't like standard definitions or formulations, you can just make your \textit{own} - full independence.
 
 \subsubsection{Motivation 2 (very important)}
 
@@ -168,9 +169,9 @@ doubting logic every step of the way puts overly restrictive bounds on what math
 A mathematician needs to be able to say ``if $P$ is $\tr$ and $P$ implies $Q$, then $Q$ is also $\tr$'' without a second thought.
 So they leave those deep questions for the philosopher to concern themself with, and instead take the validity of logic to be given.
 
-More specifically, the mathematician prescribes a list of objective and reasonable rules for how logic operates, independent of whatever content (in our case, maths) you choose to discuss with it, and hands it over for the philosopher to contest.
+More specifically, the mathematician prescribes a list of objective and reasonable rules for how logic operates that they consider fundamental, independent of whatever content (in our case, maths) you choose to discuss with it, and hands it over for the philosopher to contest.
 Having set in stone the interface between logic and maths, the mathematician now gives themselves the freedom to question \textit{anything} in the realm of maths using proofs that adhere to the formal logical rules,
-but they have so much confidence in those foundational logical rules themselves that they never doubt them again.
+but they have so much confidence in those fundamental logical rules themselves that they never doubt them again.
 This way, the mathematician is sure that everything they conclude is as valid as logic itself (with some caveats that are discussed now), and they're content with that.
 We will see an explicit formalism of logic next subchapter.
 
@@ -196,7 +197,7 @@ We will see an explicit formalism of logic next subchapter.
 %
 %This is a necessary tradeoff we made so the mathematician will never have to doubt this barebone logic.
 
-Note, logic is so barebone (as it should be if the mathematician is to never doubt it) that it makes no comment about what is definitively true about the individual objects it operates on.
+Note, logic is so barebone, as it should be if the mathematician is to never doubt it, that it makes no comment about what is definitively true about the individual objects it operates on.
 The only thing it can judge is the relationship between our assumptions and other statements, both of which concern those objects.
 E.g. we may not be able to assert whether (I am a monkey) is definitively $\tr$ or $\fa$ with pure logic alone, but we \textit{can} say that under the assumptions
 (I am lazy) and (all who are lazy are monkeys), I am indeed a monkey. Under different, perhaps more sensible assumptions though, maybe I'm not a monkey...which is a good thing because I'm pretty confident I'm not a monkey (but can I \textit{prove} it definitively? No!)
@@ -209,21 +210,21 @@ This will be explored in some more depth in Chapter $3$, on Hilbert's Program (c
 
 As a concluding remark, we do not deny the value of intuition. In fact, intuition is absolutely essential for \textit{developing} a conjecture and motivating why it might be plausible. 
 Without it we are stuck running a fool's errand of perpetual guess and check, never able to come up with something original and insightful.
-But once we are confident that our conjecture is indeed plausible, we \textit{need} to follow a gold standard of proof independent of intuition.
+But once we are confident that our conjecture is indeed plausible, we \textit{need} to follow a rigorous standard of proof independent of intuition.
 It's the best way we know of to minimise the risk as much as feasible
 for a contradiction to sneak up on us from a single far-reaching result we prematurely took as granted long ago. 
 That would shatter the foundations of mathematics, much like the contradictory assumption $\sqrt{2}\in\Q$ did for the Greeks. 
-Of course, in perhaps the greatest failure of modern maths, we've shown logically that we still can't ever completely eliminate the risk.
-But nonetheless, mathematicians collectively agree on a handful of axioms called $\ZF$\footnote{there is another axiom called Choice we will explore in Chapter 8 that together with $\ZF$ forms $\ZF \mathcal{C}$, a slightly weaker standard of proof, but we will see that it is in many respects equivalent to $\ZF$ for our purposes} on ``sets'' (all of which we will encounter in the next 2 chapters) as the basis for our gold standard of proof, 
+Of course, in perhaps the saddest result of modern maths, we've shown logically that we still can't ever completely eliminate the risk.
+But nonetheless, mathematicians collectively agree on a handful of axioms called $\ZF$\footnote{there is another axiom called Choice we will explore in Chapter 8 that together with $\ZF$ forms $\ZF \mathcal{C}$, a slightly weaker standard of proof, but we will see that it is in many respects equivalent to $\ZF$ for our purposes} defining ``sets'' (all of which we will encounter in the next 2 chapters) as the basis for our gold standard of proof, 
 which is loosely considered our best bet to avoid contradictions. Hence:
 \begin{result}{Definition}{G}{The Gold Standard of Proof}{green}
     A conjecture $P$ is considered plausible enough to be called ``proven'' \textit{if and only if} we can show with our logic that:
 
     (Assuming $\ZF$, we have $P$ is $\tr$) as a whole is $\tr$
 
-    To distinguish, we sometimes say $P$ is ``definitively true'' \textit{if and only if} we can show that:
+    To distinguish, we sometimes say $P$ is ``definitively proven'' \textit{if and only if} we can show that:
 
-    $P$ is $\tr$
+    ($P$ is $\tr$) without need for assumptions
 \end{result}
 
 .
@@ -231,6 +232,16 @@ which is loosely considered our best bet to avoid contradictions. Hence:
 \subsection{Logic Preliminaries}
 
 \subsubsection{Statements - Pure Logical Operations}
+
+
+First, we define statements as entities in logic that each take on exactly one of the truth values $\tr$, $\fa$ or $\ill$.
+Informally, the latter stands for \textit{ill-formed} statements like $\frac{1}{0} = 1$, modelling what is sometimes called \textit{no truth value}.
+By default, statements are assigned $\ill$ unless we explicitly prescribe a method of obtaining its truth value.
+
+There are certain operations we should define on statements to enrich our logic.
+Given a statement, we want to be able to talk of the opposite (the \textit{negation}) of it.
+And given several statements, we want to be able to combine them 
+
 \subsubsection{$0^{th}$ Order Objects and $1^{st}$ Order Logic - Link with Maths}
 \subsubsection{Restricted $2^{nd}$ Order Logic - Schema}
 
@@ -692,6 +703,10 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
     $\pred{P}{x}$ is the outputted truth value of the predicate $P$ when inputted the object $x$
 
     $\langle x_1, x_2, \dots, x_n \rangle$ is an $n$-tuple
+
+
+
+    \printbibliography[heading=bibintoc, title={Bibliography}]
 
 
 \end{document}
