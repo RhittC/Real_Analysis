@@ -1,9 +1,12 @@
 \documentclass{article}
 
 \usepackage[margin=1in]{geometry} 
-\usepackage{amsmath,amsthm,amssymb,hyperref, multicol, tikz, romannum, wrapfig}
+\usepackage{amsmath,amsthm,amssymb,hyperref, multicol, tikz, romannum, wrapfig, graphicx}
 \usetikzlibrary{arrows.meta, positioning}
 \usepackage[framemethod=tikz]{mdframed}
+
+\usepackage{fontspec}
+
 
 
 
@@ -44,9 +47,14 @@
 \newcommand{\Q}{\mathbb{Q}}
 
 
+
 \newcommand{\tr}{\mathcolor{teal}{\mathfrak{True}}}
 \newcommand{\fa}{\mathcolor{purple}{\mathfrak{False}}}
 \newcommand{\ill}{\mathcolor{orange}{\mathfrak{Ill}}}
+
+\newfontfamily\myfont{Noto Sans Siddham Regular}
+\newfontfamily\emoji{Segoe UI Emoji}
+\newcommand{\order}[1]{{\myfont{\char"115A2}}$_{#1}$}
 
 \newcommand{\myforall}{\kern.05em\ensuremath\forall\kern-.63em\rotatebox{110}{\rule{.73em}{.4pt}}}
 \newcommand{\myforalll}{\ensuremath\forall\kern-.5em\forall}
@@ -64,8 +72,7 @@
 \begin{document}
 \pagenumbering{arabic}
 
-
-\title{Tao Analysis - My Formulation, Visualisations and Proofs}
+\title{Tao Analysis - My Formulations, Visualisations and Proofs}
 \author{Rhitt C}
 \date{January 2026}
 
@@ -75,7 +82,7 @@
 \pagebreak
 
 \setlength{\parskip}{8pt}
-\section{Abstract, Motivation and Preliminaries}
+\section{Introduction}
 
 \subsection{Abstract}
 
@@ -84,16 +91,19 @@ and also to practise the skill of writing academic papers.
 
 It is heavily inspired and guided by Terrence Tao's Analysis Vol. \Romannum{1} and \Romannum{2}.
 However, I have taken many liberties in altering formulations to my liking, 
-completely spelling out motivating arguments before most definitions and theorems (even if this makes it clunky at times), 
+completely spelling out motivating arguments before most definitions and theorems (even if this greatly lengthens discussion), 
 going on large digressions, and providing visuals.
-I'm also including my solutions to the exercises in Tao's texts, mainly for personal reference.
+A sizeable portion of the text is also completely original content that arose from research and contemplation about specific curiosities as I progressed through Tao.
+Moreover, I'm including my solutions to the exercises in Tao's texts, and also made visuals and motivating arguments for them too where I saw fit, mainly for personal reference.
 
 As a digression on expression, in aspiration of approbation from Big M's appellation upon examination, the language register is largely formal in an attempt to adhere to writing conventions. But we undergo register shifts towards 
 informality where appropriate, particularly in avoiding the infamous passive voice\footnote{why is this even a scientific convention smh ts pmo}. This is because it would unnecessarily restrict syntactic freedom 
 in a situational context where it is the \textit{content} that matters far more than the expression. Thus, it is more favourable to be able to convey the content precisely and elegantly without jumping though linguistic hoops every step of the way.
 
-\subsection{Why do Analysis? - Motivation 1}
-The motivation for Analysis is twofold:
+
+\subsection{Why do Analysis?}
+
+\subsubsection{Motivation 1}
 
 Firstly, the most obvious reason is to understand deeper concepts that stray far from the base intuition you get from VCE and high school in general.
 For example, you may have heard the result that there are more $x\in\R$ with $x\in(0, 1)$ than there are $p\in\Q$ with $p\in(-\infty, \infty)$\footnote{the precise statement is with a concept called \textit{cardinality}}.
@@ -119,7 +129,7 @@ $$\therefore \left(\sum_{\text{over rows first}} M =1\right)\quad\neq\quad\left(
 So we have illustrated that you can't always interchange the order in which you sum infinitely many numbers, contrary to intuition.
 Real Analysis gives the full derivation for the precise conditions in which you can safely do so\footnote{see Fubini}.
 As we have seen, it teaches you how to properly deal with $\infty$.
-So in a sense, Real Analysis can make you like \textit{The Man Who Knew Infinity}\footnote{cold, cold, cold}.
+So in a sense, Real Analysis can make you like \textit{The Man Who Knew Infinity } {\emoji{🥶🥶🥶}}.
 
 More than that, Real Analysis answers to the highest echelon that is possible with logic (provably so, in fact) the \textit{why} behind essentially everything you've ever been taught in maths from kindergarten to high school, leave some small details about $\mathbb{C}$.
 You realise the true degree of freedom that maths gives you.
@@ -128,7 +138,7 @@ You don't have to take anyone's word for it, just prove it yourself.
 You learn to make a statement, and the proof of it, so damn precise that there is \textit{zero} ambiguity or subjectivity in it; I say this without hyperbole.
 Doesn't matter if a teacher thinks your expression is lacking; you can be \textit{absolutely sure} that your statement is correct, given you're subtle enough with what is meant by correct.
 
-\subsection{Why do Analysis? - Motivation 2 (very important)}
+\subsubsection{Motivation 2 (very important)}
 
 Secondly, we will see how blindly following the whims of what our intuition deems reasonable can very easily lead to contradiction. 
 The many times that this occurred historically, there was great philosophical anguish about what assumptions to keep and what to discard, substantially impeding on mathematical progress. 
@@ -144,32 +154,49 @@ And they held this assumption to be so blatantly obvious that it underpinned the
 So when it was found that $\sqrt{2}\in\Q$ would imply a contradiction, even though the triangle is very much real, it led to a crisis in which many ancient Greeks had to reevaluate their entire philosophy.
 
 Because we've been taught from a young age that irrational numbers exist and do indeed show up in the real world, we now find the concept to be no doubt very intuitive. 
-But how can we be absolute \textit{sure} that there isn't some other cancerous contradiction hiding somewhere in our mathematical foundations as well, just waiting to spread into everything we think we know, as it did for the Greeks?
-The truth is, we're \textit{not} sure. And it's in fact been \textit{proven}\footnote{see G\"odel's Incompleteness Theorems} that we we can never be sure. 
-Not unless we rob ourselves of the ability to do primary school arithmetic, which would be very absurd. So as we shall see, we do the next best thing: minimise our set of assumptions to the bare minimum that is still feasible.
+But how can we be absolute \textit{sure} there isn't some other cancerous contradiction hiding somewhere in our mathematical foundations as well, just waiting to spread into everything we think we know, as it did for the Greeks?
+The truth is, we're \textit{not} sure. And it's in fact been \textit{proven}\footnote{see Kurt G\"odel's Incompleteness Theorems} that we we can never be sure. 
+Not unless we rob ourselves of the ability to do primary school level arithmetic, which would be very absurd. So as we shall see, we do the next best thing: minimise our set of assumptions to the bare minimum that is still feasible.
 
-To be clear, the issue isn't with logic itself. As a rather lengthy aside, the question of whether logic is valid is philosophical in nature, and seemingly can't ever have a definitive resolution.
-For example, it could very well be the case that we and our fictitious universe only exist in the incoherent dream of a butterfly. If so, logic as we perceive it only \textit{appears} valid to us,
-yet completely wrong to a scientist observing the dream from outside in the real world. But even though such fundamental questions about reality may be interesting, 
+To be clear, the issue we mention isn't with logic itself. As a rather lengthy aside, the question of whether logic is valid is philosophical in nature, and seemingly can't ever have a definitive resolution.
+For example, it could very well be the case that we and our fictitious universe only exist in the vivid yet incoherent dream of a celestial dolphin. If so, logic as we perceive it only \textit{appears} valid to us,
+yet completely flawed and contradictory to a scientist observing the dream from outside in the real universe.
+But even though pondering over such hypotheticals about reality itself may be interesting, 
 doubting logic every step of the way puts overly restrictive bounds on what mathematical progress is possible.
-So they're for the philosopher to ponder over. Instead, the mathematician prescribes a handful of intuitive operations on True/False valued statements, which formalise pure logic. E.g.
-\begin{align*} &\text{(True }\&\text{ True) is True, but} \\ &\text{(True }\&\text{ False) is False, as True and False are said to contradict each other.} \end{align*}
-Then they prescribe a few more rules on how to produce those logical statements from free variables (which can be mathematical objects), completing the formal, objective link from logic to maths.
-E.g.
-\begin{align*} ((\forall x)\; x\text{ is a gorilla})\implies \text{ Harambe is a gorilla}\text{) is True} \end{align*}
-Finally, they combine all of this into a rulebook which they call the formal logic. Confident that the logic reflects reality, they hand it over to the philosopher to question the validity of.
-The mathematician is now happy to accept their logic as absolute and instead ponders questions about how the logic actually affects mathematical statements (theorems, lemmas, corollaries, etc.). 
-And even if the philosopher someday finds that the logic is only valid in the dream of a butterfly and invalid outside of it, much of the work done by mathematicians could very well still be moulded to adhere to whatever rulebook is followed by the world outside the dream.
+A mathematician needs to be able to say ``if $P$ is $\tr$ and $P$ implies $Q$, then $Q$ is also $\tr$'' without a second thought.
+So they leave those deep questions for the philosopher to concern themself with, and instead take the validity of logic to be a given.
 
-Now that we have set our logic in stone, how do we proceed?
-Logic can only tell us about the relationships between logical statements, but makes no comment about many individual statements involving free variables.
-E.g. we can show $$\text{(I am a lazy person \& all lazy people are monkeys)}\implies\text{(I am a monkey)}\footnote{given this is stated in a way that avoids mentioning sets}$$
-as a whole is True directly from our logic\footnote{see vacuous truth in the next subchapter}, but we can't individually show that (I am a lazy person) or (all lazy people are monkeys) are True with logic alone because of the free variables (I), (lazy person/people) and (monkey(s)).
-And if either of those two statements turn out to be False, then we have no information about whether (I am a monkey) is True or False. I could very well be a monkey despite not being lazy. Thus, all in all, we have an ($\implies$) statement that is True but we can't show definitively that its implication (I am a monkey) is also True\dots which is a good thing because I'm pretty confident I'm not a monkey (but can I \textit{show} definitively that I'm not? Once again, no). 
+More specifically, the mathematician prescribes a series of objective and reasonable rules for how logic operates, independent of whatever content (in our case, maths) you choose to discuss with it, and hands it over for the philosopher to contest.
+Having set in stone the interface between logic and maths, the mathematician now gives themselves the freedom to question \textit{anything} in the realm of maths using proofs that adhere to the formal logical rules,
+but never again to doubt the rules themselves.
+This way, the mathematician is sure that everything they conclude is as valid as logic itself.
+And if the philosopher someday finds that the true logical rules are indeed different in the real universe waiting beyond the dolphin's dream,
+then they could still very well be similar enough for the bulk of the mathematician's work to be moulded accordingly.
+We will see an explicit formalism of logic next subchapter.
 
-This is a necessary tradeoff we made so the mathematician will never have to doubt this barebone logic.
 
-So how do we prove a conjecture $P$? 
+%To be clear, the issue isn't with logic itself. As a rather lengthy aside, the question of whether logic is valid is philosophical in nature, and seemingly can't ever have a definitive resolution.
+%For example, it could very well be the case that we and our fictitious universe only exist in the incoherent dream of a butterfly. If so, logic as we perceive it only \textit{appears} valid to us,
+%yet completely wrong to a scientist observing the dream from outside in the real world. But even though such fundamental questions about reality may be interesting, 
+%doubting logic every step of the way puts overly restrictive bounds on what mathematical progress is possible.
+%So they're for the philosopher to ponder over. Instead, the mathematician prescribes a handful of intuitive operations on True/False valued statements, which formalise pure logic. E.g.
+%\begin{align*} &\text{(True }\&\text{ True) is True, but} \\ &\text{(True }\&\text{ False) is False, as True and False are said to contradict each other.} \end{align*}
+%Then they prescribe a few more rules on how to produce those logical statements from free variables (which can be mathematical objects), completing the formal, objective link from logic to maths.
+%E.g.
+%\begin{align*} ((\forall x)\; x\text{ is a gorilla})\implies \text{ Harambe is a gorilla}\text{) is True} \end{align*}
+%Finally, they combine all of this into a rulebook which they call the formal logic. Confident that the logic reflects reality, they hand it over to the philosopher to question the validity of.
+%The mathematician is now happy to accept their logic as absolute and instead ponders questions about how the logic actually affects mathematical statements (theorems, lemmas, corollaries, etc.). 
+%And even if the philosopher someday finds that the logic is only valid in the dream of a butterfly and invalid outside of it, much of the work done by mathematicians could very well still be moulded to adhere to whatever rulebook is followed by the world outside the dream.
+%
+%Now that we have set our logic in stone, how do we proceed?
+%Logic can only tell us about the relationships between logical statements, but makes no comment about many individual statements involving free variables.
+%E.g. we can show $$\text{(I am a lazy person \& all lazy people are monkeys)}\implies\text{(I am a monkey)}\footnote{given this is stated in a way that avoids mentioning sets}$$
+%as a whole is True directly from our logic\footnote{see vacuous truth in the next subchapter}, but we can't individually show that (I am a lazy person) or (all lazy people are monkeys) are True with logic alone because of the free variables (I), (lazy person/people) and (monkey(s)).
+%And if either of those two statements turn out to be False, then we have no information about whether (I am a monkey) is True or False. I could very well be a monkey despite not being lazy. Thus, all in all, we have an ($\implies$) statement that is True but we can't show definitively that its implication (I am a monkey) is also True\dots which is a good thing because I'm pretty confident I'm not a monkey (but can I \textit{show} definitively that I'm not? Once again, no). 
+%
+%This is a necessary tradeoff we made so the mathematician will never have to doubt this barebone logic.
+
+But what matters for maths is, how do we prove a statement $P$ under our formal rules for logic? 
 Instead of the fool's errand of looking for whether $P$ is definitively True,
 we loosen our standards slightly and instead show the truth of an ($\implies$) statement as follows: if we accept a base few assumptions, which we call our \textit{axioms}, then $P$ is True.
 That is, our standard of proof for $P$ is of the form:
@@ -200,8 +227,12 @@ The gold standard we set is hence:
 
 \subsection{Logic Preliminaries}
 
+\subsubsection{Statements - Pure Logical Operations}
+\subsubsection{$0^{th}$ Order Objects and $1^{st}$ Order Logic - Link with Maths}
+\subsubsection{Restricted $2^{nd}$ Order Logic - Schema}
 
-Define a statement as a logical entity that takes on either $\tr$ (True), $\fa$ (False) or $ \ill $(Ill-Formed),
+
+Define a statement as a logical entity that takes on either $\tr$ (True), $\fa$ (False) or $ \ill$ (Ill-Formed),
 where $\ill$ indicates the statement is left undefined and considered to have no truth value (e.g. $\frac{1}{0}=1$). 
 This way, we have a mechanism to handle ill-formed statements in case they slip through our fingers somewhere down the line.
 
@@ -228,7 +259,7 @@ Furthermore, an ($\implies$) statement only comments about \textit{correlation},
     \end{tabular}
     
     
-    Given two statements $S_1$ and $S_2$, new statements ($S_1\&S_2$) and ($S_1\implies S_2$) can be formed as follows:
+    Given two statements $A$ and $B$, new statements ($S_1\&S_2$) and ($S_1\implies S_2$) can be formed as follows:
 
     \begin{tabular}{c c | c | c}
         $S_1$ & $S_2$
@@ -287,6 +318,8 @@ Suggestively, we denote:
 $$\preddef{P}{0}$$
 The biggest difference being that they do not actually relate a domain set to a codomain set.
 This is because logic itself is used to define sets and so this would be very blatantly circular.
+
+\order{0 test}
 
 Instead, 
 
