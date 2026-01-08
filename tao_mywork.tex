@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[openany]{book}
 
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb,hyperref, multicol, tikz, romannum, wrapfig, graphicx, fontspec}
@@ -81,14 +81,14 @@
 \pagebreak
 
 \setlength{\parskip}{8pt}
-\section{Introduction}
+\chapter{Introduction}
 
-\subsection{Abstract}
+\section{Abstract}
 
 I decided to write this text as a means to consolidate my personal understanding of undergraduate Real Analysis, 
-and also to practise the skill of writing academic papers. 
+and also to practise the skill of writing academic papers with \LaTeX. 
 
-It is heavily inspired and guided by Terrence Tao's Analysis Vol. \Romannum{1} and \Romannum{2} 
+It is heavily inspired and guided by Terrence Tao's Analysis Vol. \Romannum{1} and \Romannum{2} \cite{Tao}
 However, I have taken many liberties in altering formulations to my liking, 
 completely spelling out motivating arguments before most definitions and theorems (even if this greatly lengthens discussion), 
 going on large digressions, and providing visuals.
@@ -101,9 +101,9 @@ informality where appropriate, particularly in avoiding the infamous passive voi
 in a situational context where it is the \textit{content} that matters far more than the expression. Thus, it is more favourable to be able to convey the content precisely and elegantly without jumping though linguistic hoops every step of the way.
 
 
-\subsection{Why do Analysis?}
+\section{Why do Analysis?}
 
-\subsubsection{Motivation 1}
+\subsection{Motivation 1}
 
 The most obvious reason to do Analysis is to understand deeper concepts that stray far from the base intuition you get from VCE and high school in general.
 For example, you may have heard the result that there are more $x\in\R$ with $x\in(0, 1)$ than there are $p\in\Q$ with $p\in(-\infty, \infty)$\footnote{the precise statement is with a concept called \textit{cardinality}}.
@@ -229,9 +229,9 @@ which is loosely considered our best bet to avoid contradictions. Hence:
 
 .
 
-\subsection{Logic Preliminaries}
+\section{Logic Preliminaries}
 
-\subsubsection{Statements - Pure Logical Operations}
+\subsection{Statements - Pure Logical Operations}
 
 
 First, we define statements as entities in logic that each take on exactly one of the truth values $\tr$, $\fa$ or $\ill$.
@@ -242,8 +242,8 @@ There are certain operations we should define on statements to enrich our logic.
 Given a statement, we want to be able to talk of the opposite (the \textit{negation}) of it.
 And given several statements, we want to be able to combine them 
 
-\subsubsection{$0^{th}$ Order Objects and $1^{st}$ Order Logic - Link with Maths}
-\subsubsection{Restricted $2^{nd}$ Order Logic - Schema}
+\subsection{0th Order Objects and 1st Order Logic - Link with Maths}
+\subsection{Restricted 2nd Order Logic - Schema}
 
 
 Define a statement as a logical entity that takes on either $\tr$ (True), $\fa$ (False) or $ \ill$ (Ill-Formed),
@@ -349,10 +349,10 @@ We now define how to produce statements from free variables using \textit{quanti
 
 
 \pagebreak
-\section{Construction of $\N$}
+\chapter{Construction of Naturals}
 
 \setcounter{subsection}{-1}
-\subsection{Peano Axioms - Motivation for Defining $\N$ Axiomatically}
+\section{Peano Axioms - Motivation for Defining Naturals Axiomatically}
 We first motivate the set of naturals $\N = \{0, 1, 2, \dots\}$ to be so essential that it deserves its own few axioms.
 
 As mentioned, $\ZF$, the ultimate handful of axioms we are leading up to, lay out what is legally a set. So what even is a set intuitively? Informally, a set $S$ is the collection of all objects $x$ satisfying a certain predicate\footnote{see 1.4 Logic Preliminaries} $\preddef{P}{0}$. That is,
@@ -371,7 +371,7 @@ We will later see that one of the $\ZF$ Axioms makes reference to all 5 Peano Ax
 The standard in the literature is actually to not even mention the Peano Axioms at all, but instead condense them into a single, concise axiom in $\ZF$ that satisfies our formulation of Peano \textit{automatically}.
 We will not do this, as it is far more intuitive to define Peano first.
 
-\subsection{The Peano Axioms}
+\section{Peano Axioms - Formulation}
 We now lay out the requirements that our first infinite ``set'' $\N$ must satisfy as the 5 Peano Axioms. 
 As sets have not yet been defined, we primitively let $\N[n]$ be the predicate for whether $n$ is natural, 
 substituting for where we would otherwise say $n \in \N$. We abbreviate ($\forall n\;s.t.\; \N[n]$) as ($\forall \N[n]$)
@@ -572,127 +572,110 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
 
     So in a sense, the Peano Axioms lay out a kind of citizenship test, in which $\langle X, S\rangle$ is considered a natural structure if and only if it passes, and it gets all the perks of being a natural citizen that we will now derive.
 
-    \subsection{Addition}
-    \subsection{Multiplication}
+    \section{Addition}
+    \section{Multiplication}
 
 
 
-    \pagebreak
-    \section{$\ZF$ Set Theory}
-    \setcounter{subsection}{1}
-    \subsection{Historical Axioms - Too Good to be True}
-    \setcounter{subsection}{0}
-    \subsection{$\ZF$ Axioms}
-    \setcounter{subsection}{2}
-    \subsection{Functions}
-    \subsection{Images}
-    \subsection{Cartesian Products}
-    \subsection{Cardinality}
-    \subsection{Hilbert's Program}
+    \chapter{ZF Set Theory}
+    \setcounter{section}{1}
+    \section{Naive Set Theory Axioms - Too Good to be True}
+    \setcounter{section}{0}
+    \section{ZF Axioms}
+    \setcounter{section}{2}
+    \section{Functions}
+    \section{Images}
+    \section{Cartesian Products}
+    \section{Cardinality}
+    \section{Hilbert's Program}
 
 
-    \pagebreak
-    \section{Constructing $\Z$ and $\Q$}
-    \subsection{Constructing $\Z$ - Subtractive Closure of $\N$}
-    \subsection{Constructing $\Q$ - Divisive Closure of $\Z$}
-    \subsection{Exponentiation of $\Q$ to $\Z$ Powers and the Modulus}
-    \subsection{Why $\Q$ is Inadequate - Motivation for $\R$}
+    \chapter{Constructing Integers and Rationals}
+    \section{Constructing Integers - Subtractive Closure of Naturals}
+    \section{Constructing Rationals - Divisive Closure of Integers}
+    \section{Exponentiation of Rationals to Integer Powers and the Modulus}
+    \section{Why Rationals are Inadequate - Motivation for Reals}
 
     
-    \pagebreak
-    \section{Constructing $\R$ - Cauchy Completion of $\Q$ - The (Almost) Perfect Field}
-    \setcounter{subsection}{-1}
-    \subsection{Aside - Dedekind Construction of $\R$}
-    \subsection{Cauchy Sequences}
-    \subsection{Defining Equivalence of Cauchy Sequences}
-    \subsection{Cauchy Construction of $\R$}
-    \subsection{Defining an Order on $\R$}
-    \subsection{The Least Upper Bound Property (LUBP) - Fixing the Problems of $\Q$}
-    \subsection{Exponentiation of $\R$ to $\Q$ Powers}
+    \chapter{Constructing Reals - Cauchy Completion of Rationals - The (Almost) Perfect Field}
+    \setcounter{section}{-1}
+    \section{Aside - Dedekind Construction of Reals}
+    \section{Cauchy Sequences}
+    \section{Defining Equivalence of Cauchy Sequences}
+    \section{Cauchy Construction of Reals}
+    \section{Defining an Order on Reals}
+    \section{Least Upper Bound Property (LUBP) - Fixing the Problems of Rationals}
+    \section{Exponentiation of Reals to Rational Powers}
 
 
-    \pagebreak
-    \section{Limits of Sequences}
-    \subsection{Convergence and Limit Laws}
-    \subsection{Defining $\R^{[-\infty, \infty]}$}
-    \subsection{Suprema and Infima}
-    \subsection{Limsup, Liminf and Limit Points}
-    \subsection{Some Standard Limits}
-    \subsection{Subsequences}
-    \subsection{As Far as Exponentiation of $\R$ Goes - Inadequacies of $\R$}
+    \chapter{Limits of Sequences}
+    \section{Convergence and Limit Laws}
+    \section{Defining Extended Reals}
+    \section{Suprema and Infima}
+    \section{Limsup, Liminf and Limit Points}
+    \section{Some Standard Limits}
+    \section{Subsequences}
+    \section{As Far as Exponentiation of Reals Goes - Inadequacies of Reals}
 
-    \pagebreak
-    \section{Series}
-    \subsection{Finite Series}
-    \subsection{Infinite Series}
-    \subsection{Series with $[0, \infty)$}
-    \subsection{The Problem with Rearranging Series}
-    \subsection{Root and Ratio Tests}
+    \chapter{Series}
+    \section{Finite Series}
+    \section{Infinite Series}
+    \section{Series on Nonnegative Terms}
+    \section{The Problem with Rearranging Series}
+    \section{Root and Ratio Tests}
     
-    \pagebreak
-    \section{Handling $\infty$}
-    \subsection{$|\N|$ Cardinality}
-    \subsection{Summation on Infinite Sets}    
-    \subsection{$|\R|$ Cardinality}
-    \subsection{Axiom of Choice - Full Discussion}
-    \subsection{Well-Ordering of $|\R|$ Sets}
+    \chapter{Handling Infinity}
+    \section{Countable Cardinality}
+    \section{Summation on Infinite Sets}    
+    \section{Uncountable Cardinality}
+    \section{Axiom of Choice}
+    \section{Well-Ordering of Uncountable Sets}
 
 
-    \pagebreak
-    \section{Continuity}
-    \subsection{Subsets of $\R$}
-    \subsection{Algebra on $\R$-valued Functions}
-    \subsection{Limiting Values of Functions}
-    \subsection{Continuous Functions}
-    \subsection{Left and Right Limits}
-    \subsection{The Max Principle}
-    \subsection{The Intermediate Value Theorem (IVT)}
-    \subsection{Monotonicity}
-    \subsection{Uniform Continuity}
-    \subsection{Limits at $\infty$}
+    \chapter{Continuity}
+    \section{Subsets of Reals}
+    \section{Algebra on Real Valued Functions}
+    \section{Limiting Values of Functions}
+    \section{Continuous Functions}
+    \section{Left and Right Limits}
+    \section{The Max Principle}
+    \section{The Intermediate Value Theorem (IVT)}
+    \section{Monotonicity}
+    \section{Uniform Continuity}
+    \section{Limits at Infinities}
 
     
-    \pagebreak
-    \section{Differentiation}
+    \chapter{Differentiation}
 
 
-    \pagebreak
-    \section{Riemann Integral}
+    \chapter{Riemann Integral}
 
 
-    \pagebreak
-    \section{Metric Spaces}
+    \chapter{Metric Spaces}
 
 
-    \pagebreak
-    \section{Generalising Continuity to Metric Spaces}
+    \chapter{Generalising Continuity to Metric Spaces}
 
     
-    \pagebreak
-    \section{Uniform Convergence}
+    \chapter{Uniform Convergence}
 
 
-    \pagebreak
-    \section{Power Series}
+    \chapter{Power Series}
 
 
-    \pagebreak
-    \section{Fourier Series}
+    \chapter{Fourier Series}
 
 
-    \pagebreak
-    \section{Multivariable Differential Calc}
+    \chapter{Multivariable Differential Calc}
 
     
-    \pagebreak
-    \section{Lebesgue Measure - oooh}
+    \chapter{Lebesgue Measure - oooh}
 
 
-    \pagebreak
-    \section{Lebesgue Integration}
+    \chapter{Lebesgue Integration}
 
-    \pagebreak
-    \section{Appendix - List of Non-Standard Notations Used}
+    \appendix
+    \chapter{List of Non-Standard Notations Used}
 
     In rough order of appearance:
 
@@ -703,6 +686,9 @@ substituting for where we would otherwise say $n \in \N$. We abbreviate ($\foral
     $\pred{P}{x}$ is the outputted truth value of the predicate $P$ when inputted the object $x$
 
     $\langle x_1, x_2, \dots, x_n \rangle$ is an $n$-tuple
+
+
+    \printbibliography[heading=bibintoc, title={Bibliography}]
 
 
 \end{document}
